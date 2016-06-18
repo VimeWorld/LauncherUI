@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VimeWorld Launcher</title>
+	<meta charset="utf-8">
+	<meta name="author" content="xtrafrancyz">
+	<meta name="copyright" content="VimeWorld.ru">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/animate.min.css">
+	<link rel="stylesheet" href="css/tooltipster.css">
+	<link id="h_theme" rel="stylesheet" href="css/vimeworld-light.css">
+	<script type="text/javascript">
+		const t_loader = '<div><svg class="svg-loading" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="48" height="48"><path transform="translate(2)" d="M 0 11.5239 V 20.4761 H 4 V 11.5239 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path><path transform="translate(8)" d="M 0 9.06868 V 22.9313 H 4 V 9.06868 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0.2" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path><path transform="translate(14)" d="M 0 4.56017 V 27.4398 H 4 V 4.56017 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0.4" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path><path transform="translate(20)" d="M 0 8.17295 V 23.827 H 4 V 8.17295 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0.6" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path><path transform="translate(26)" d="M 0 12 V 20 H 4 V 12 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0.8" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path></svg></div>';
+		const t_loader_center = '<div style="text-align: center; margin-top: 50px;">'+t_loader+'</div>';
+	</script>
+	<script src="js/libs/jquery-2.1.4.min.js"></script>
+	<script src="js/libs/jquery.tooltipster.min.js"></script>
+	<script src="js/libs/jquery.mousewheel.min.js"></script>
+	<script src="js/libs/jquery.actual.min.js"></script>
+	<script src="js/libs/anchorme.min.js"></script>
+	<script src="js/libs/moment.min.js"></script>
+	<script src="js/libs/ohsnap.js"></script>
+	<script src="js/libs/microtemplating.js"></script>
+	<script src="js/vimeworld.js"></script>
+	<script src="js/auth.js"></script>
+	<script src="js/news.js"></script>
+	<script src="js/settings.js"></script>
+	<script src="js/play.js"></script>
+</head>
+<body class="auth">
+	<!-- Шаблоны -->
+	<script type="text/html" id="tpl_server_list_item">
+		<li id="srv_<%=id%>" class="server" data-id="<%=id%>">
+			<%=name%>
+			<span class="status"></span>
+		</li>
+	</script>
+	<script type="text/html" id="tpl_news_post">
+		<div id="post_<%=id%>" class="card">
+			<h1><a href="https://vk.com/wall<%=owner_id%>_<%=id%>">VimeWorld.ru</a><span class="time-from-now" data-time="<%=date%>"><%=moment(date, "X").fromNow()%></span></h1>
+			<div class="text" data-id="<%=id%>"><%=text%></div>
+			<div class="foot clearfix">
+				<div class="likes"><a href="https://vk.com/wall<%=owner_id%>_<%=id%>"><img src="img/svg/likes.svg"> <%=likes.count%></a></div>
+				<div class="comments"><a href="https://vk.com/wall<%=owner_id%>_<%=id%>">Комментариев: <%=comments.count%></a></div>
+			</div>
+		</div>
+	</script>
+	<script type="text/html" id="tpl_news_post_video">
+		<div class="video">
+			<a href="<%=url%>">
+				<span>
+					<img class="preview" src="<%=img%>">
+					<img class="video-play-btn" src="img/video_play_compact.png">
+					<div class="video-status clearfix">
+						<div class="title"><%=title%></div>
+						<div class="duration"><%=duration%></div>
+					</div>
+				</span>
+			</a>
+		</div>
+	</script>
+
+
+	<div class="wrap">
+		<!-- Шапка -->
+		<div class="header">
+			<div class="logo">
+				<img src="img/logo.png" selectable>
+				<span selectable>VimeWorld</span>
+			</div>
+			<ul class="menu">
+				<li><a href="#play">Играть</a></li>
+				<li><a href="#news">Новости</a></li>
+				<li><a href="#settings">Настройки</a></li>
+			</ul>
+			<ul class="menu auth">
+				<li><a href="#auth" class="active">Вход</a></li>
+				<li style="display: none;"><a href="#register">Регистрация</a></li>
+				<li><a href="#news">Новости</a></li>
+				<li><a href="#settings">Настройки</a></li>
+				<li><a href="http://vimeworld.ru">Сайт <i class="fa fa-external-link"></i></a></li>
+				<li><a href="http://forum.vimeworld.ru">Форум <i class="fa fa-external-link"></i></a></li>
+			</ul>
+			<div class="controls">
+				<div id="gui_min"><i class="fa fa-minus"></i></div>
+				<div id="gui_close"><i class="fa fa-times"></i></div>
+			</div>
+			<div class="dropdown" id="controls-user">
+				<div>
+					<span id="username">xtrafrancyz</span>
+					<i class="fa fa-chevron-down"></i>
+				</div>
+				<ul class="bottom">
+					<li><a id="tocp">Личный кабинет</a></li>
+					<li class="divider"></li>
+					<li><a id="logout">Сменить аккаунт</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="content">
+			<!-- Окно авторизации -->
+			<div class="tab" id="auth">
+				<div class="card">
+					<h1>Авторизация</h1>
+					<form id="auth-form" class="card-form" action="#">
+						<div class="input">
+							<input type="text" name="username" maxlength="16" placeholder="Логин" onkeydown="if (event.keyCode == 9) $(this).next().focus()">
+							<input type="password" name="password" placeholder="Пароль" onkeydown="if (event.keyCode == 9) $(this).prev().focus()">
+						</div>
+						<div class="checkbox">
+							<input id="s_savepass" type="checkbox"><label for="s_savepass">Запомнить пароль?</label>
+						</div>
+						<button type="submit" class="btn btn-primary" >Войти</button>
+						<a href="http://cp.vimeworld.ru/lostpass">Забыли пароль?</a>
+						<a href="#" style="float:right" onclick=$('a[href="#register"]').trigger('click')>Регистрация</a>
+					</form>
+				</div>
+			</div>
+
+			<div class="tab hidden" id="register">
+				<div class="card">
+					<h1>Регистрация</h1>
+					<form id="register-form" class="card-form" action="#">
+						<div class="input">
+							<input type="text" name="username" maxlength="16" placeholder="Логин" onkeydown="if (event.keyCode == 9) $(this).next().focus()">
+							<input type="password" name="password" maxlength="20" placeholder="Пароль" onkeydown="if (event.keyCode == 9) $(this).next().focus()">
+							<input type="password" name="password2" placeholder="Повтор пароля" onkeydown="if (event.keyCode == 9) $(this).next().focus()">
+							<input type="email" name="email" placeholder="Email" onkeydown="if (event.keyCode == 9) $(this).parent().find(':first-child').focus()">
+						</div>
+						<div class="checkbox">
+							<input id="r_acceptrules" type="checkbox">
+							<label for="r_acceptrules">Я согласен(-а) с <a href="http://forum.vimeworld.ru/topic/15-" target="_blank">правилами</a> сервера</label>
+						</div>
+						<button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+						<a href="#" onclick=$('a[href="#auth"]').trigger('click')>Уже зарегистрированы? Войдите</a>
+					</form>
+				</div>
+			</div>
+
+			<!-- Главная страница -->
+			<div class="tab hidden" id="play">
+				<div class="card" id="servers">
+					<header>Выбор сервера</header>
+					<ul class="scroll-dark">
+						<li style="text-align: center"><script>document.write(t_loader);</script></li>
+					</ul>
+					<div id="total-online"></div>
+				</div>
+				<div class="card play_body">
+					<div class="description">
+						<h1><span id="server-name">Загрузка...</span><span id="server-online"></span></h1>
+						<div id="server-description" class="scroll-dark">
+							<script>document.write(t_loader_center);</script>
+						</div>
+					</div>
+					<div class="bottom clearfix">
+						<button id="play-btn" class="btn btn-success">Играть</button>
+						<div class="loading-info">
+							<div id="loading-bar-container">
+								<progress id="loading-bar" value="0" max="1000"></progress>
+								<div id="loading-bar-text"></div>
+							</div>
+							<div id="loading-object" class="muted"></div>
+							<div class="dropdown">
+								<div>
+									<span>Дополнительно</span>
+									<i class="fa fa-chevron-up"></i>
+								</div>
+								<ul class="top">
+									<li><a id="p_screenshots" href="#">Скриншоты</a></li>
+									<li><a id="p_openclient" href="#">Открыть папку клиента</a></li>
+									<li class="divider"></li>
+									<li><a id="p_deleteclient" href="#">Удалить клиент</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Новости -->
+			<div class="tab hidden" id="news">
+				<script>document.write(t_loader_center);</script>
+			</div>
+
+			<!-- Настройки -->
+			<div class="tab hidden" id="settings">
+				<div class="card">
+					<h1>Настройки</h1>
+					<div class="checkbox">
+						<input id="s_fullscreen" type="checkbox"><label for="s_fullscreen">Запуск в полный экран</label>
+					</div>
+					<div class="checkbox">
+						<input id="s_useshaders" type="checkbox"><label for="s_useshaders">Использовать шейдеры <!--<span class="muted">(для 1.6.4)</span>--></label>
+					</div>
+					<div class="checkbox">
+						<input id="s_smoothscroll" type="checkbox"><label for="s_smoothscroll">Плавная прокрутка <span class="muted">(требуется перезапуск)</span></label>
+					</div>
+					<div class="input-addon-right">
+						<label for="s_memory">Оперативная память:</label>
+						<div class="clearfix">
+							<input id="s_memory" type="text" placeholder="Количество" data-enter-blur>
+							<div class="addon">Мб.</div>
+						</div>
+					</div>
+					<div class="input-addon-center">
+						<label for="s_width">Размеры окна:</label>
+						<div class="clearfix">
+							<input id="s_width" type="text" placeholder="Ширина" data-enter-blur onkeydown="if (event.keyCode == 9) $(this).next().next().focus()">
+							<div class="addon">x</div>
+							<input id="s_height" type="text" placeholder="Высота" data-enter-blur onkeydown="if (event.keyCode == 9) $(this).prev().prev().focus()">
+						</div>
+					</div>
+					<div>
+						<label for="s_theme">Выберите тему:</label>
+						<select id="s_theme">
+							<option value="light">Светлая</option>
+							<option value="dark">Тёмная</option>
+						</select>
+					</div>
+					<div style="margin-top: 20px;">
+						<a id="s_open_launcher_dir" href="#">Открыть папку .vimeworld</a>
+					</div>
+					<!--
+					<div style="margin-top: 10px; display: block;" class="tooltip" title="Используется для привязки аккаунта по железу">
+						<label for="s_osuuid">Уникальный идентификатор:</label>
+						<input id="s_osuuid" style="width: 100%" type="text" data-enter-blur readonly>
+					</div>
+					-->
+				</div>
+			</div>
+
+			<div id="ohsnap"></div>
+		</div>
+		<div id="drag-resize"></div>
+
+		<div id="overlay">
+			<div id="update-popup" class="popup">
+				<h3>Найдено обновление лаунчера</h3>
+				<p>Для обновления необходимо перезапусть его.</p>
+				<p>Если после перезапуска это сообщение не исчезло, значит нужно скачать новый лаунчер с сайта: <a href="http://vimeworld.ru/redirect.php?r=updater">скачать</a>.</p>
+				<div class="popup-footer">
+					<button class="btn btn-primary" onclick="_common.close()">Закрыть</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
