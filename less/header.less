@@ -54,6 +54,7 @@
 			transition-duration: .3s, .2s;
 			transition-timing-function: ease;
 			font-weight: 600;
+			position: relative;
 
 			&:hover{
 				opacity: 1;
@@ -75,6 +76,23 @@
 			    position: relative;
 			    top: -8px;
 			    left: -2px;
+			}
+
+			.m_n_unwatched {
+				background-color: red;
+				display: inline-block;
+				position: absolute;
+				font-size: 11px;
+				line-height: 11px;
+				padding: 3px 5px;
+				right: -1px;
+    			top: -3px;
+				border-radius: 50px;
+				font-weight: normal;
+
+				&:empty{
+					display: none;
+				}
 			}
 		}
 	}

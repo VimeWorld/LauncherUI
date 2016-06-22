@@ -536,9 +536,6 @@ progress::-webkit-progress-value {
 .svg-loading {
   fill: #333333;
 }
-/**********************
-	Вспомогательные классы
-**********************/
 .clearfix {
   display: block;
   zoom: 1;
@@ -615,6 +612,7 @@ body.main .header .menu.auth {
   transition-duration: .3s, .2s;
   transition-timing-function: ease;
   font-weight: 600;
+  position: relative;
 }
 .header .menu a:hover {
   opacity: 1;
@@ -633,6 +631,21 @@ body.main .header .menu.auth {
   position: relative;
   top: -8px;
   left: -2px;
+}
+.header .menu a .m_n_unwatched {
+  background-color: red;
+  display: inline-block;
+  position: absolute;
+  font-size: 11px;
+  line-height: 11px;
+  padding: 3px 5px;
+  right: -1px;
+  top: -3px;
+  border-radius: 50px;
+  font-weight: normal;
+}
+.header .menu a .m_n_unwatched:empty {
+  display: none;
 }
 .header .controls {
   float: right;

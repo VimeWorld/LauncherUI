@@ -3,6 +3,9 @@
     var offset = 0;
     var loading = false;
     var group_id = -29034706;
+    var newsAdded = 0;
+    var lastWatched = -1;
+    var newestPost = -1;
 
     function load_news(){
         if (loading)
@@ -31,10 +34,39 @@
                 if (firstLoad)
                     $('#news').html('');
 
-                items.forEach(addPost);
+                var unwatched = 0;
+                var watched = false;
+                for (id in items){
+                    if (items[id].text.indexOf('#offtop') == -1){
+                        if (newestPost == -1)
+                            newestPost = items[id].id;
+                        if (!watched){
+                            if (items[id].id == lastWatched){
+                                watched = true;
+                            }else{
+                                unwatched++;
+                            }
+                        }
+                        addPost(items[id]);
+                        newsAdded++;
+                    }
+                }
 
                 _common.print('[news] '+items.length+' posts loaded');
                 loading = false;
+
+                if (offset == perPage){
+                    if (unwatched > 0){
+                        if (watched){
+                            $('.m_n_unwatched').text(unwatched);
+                        } else {
+                            $('.m_n_unwatched').text((unwatched > 9 ? 9 : unwatched) + '+');
+                        }
+                    }
+                }
+
+                if (newsAdded <= 3)
+                    load_news();
             }
         });
     }
@@ -127,12 +159,15 @@
                 load_news();
             }
         }).one('tab:open', function(){
-            _common.print('Trying to load news...');
-            load_news();
+            lastWatched = newestPost;
+            _config.setLastWatchedPost(lastWatched);
+            $('.m_n_unwatched').text('');
         });
     });
 
     $(document).on('vimeworld:load', function(event){
-
+        _common.print('Trying to load news...');
+        lastWatched = _config.getLastWatchedPost();
+        load_news();
     });
 })();
