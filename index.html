@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/animate.min.css">
 	<link rel="stylesheet" href="css/tooltipster.css">
-	<link id="h_theme" rel="stylesheet" href="css/vimeworld-light.css">
+	<link id="h_theme" rel="stylesheet" href="css/vimeworld-blue.css">
 	<script type="text/javascript">
 		const t_loader = '<div><svg class="svg-loading" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="48" height="48"><path transform="translate(2)" d="M 0 11.5239 V 20.4761 H 4 V 11.5239 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path><path transform="translate(8)" d="M 0 9.06868 V 22.9313 H 4 V 9.06868 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0.2" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path><path transform="translate(14)" d="M 0 4.56017 V 27.4398 H 4 V 4.56017 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0.4" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path><path transform="translate(20)" d="M 0 8.17295 V 23.827 H 4 V 8.17295 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0.6" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path><path transform="translate(26)" d="M 0 12 V 20 H 4 V 12 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0.8" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path></svg></div>';
 		const t_loader_center = '<div style="text-align: center; margin-top: 50px;">' + t_loader + '</div>';
@@ -45,7 +45,11 @@
 			</div>
 			<div class="foot clearfix">
 				<div class="likes">
-					<a href="https://vk.com/wall<%=owner_id%>_<%=id%>"><img src="img/svg/likes.svg">
+					<a href="https://vk.com/wall<%=owner_id%>_<%=id%>">
+						<svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+						    <path d="M0 0h24v24H0z" fill="none"/>
+						    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+						</svg>
 						<%=likes.count%>
 					</a>
 				</div>
@@ -232,8 +236,10 @@
 					<div>
 						<label for="s_theme">Выберите тему:</label>
 						<select id="s_theme">
-							<option value="light">Светлая</option>
+							<option value="blue">Голубая</option>
 							<option value="dark">Тёмная</option>
+							<option value="pink">Розовая</option>
+							<option value="green">Зелёная</option>
 						</select>
 					</div>
 					<div style="margin-top: 20px;">

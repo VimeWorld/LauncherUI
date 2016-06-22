@@ -1051,8 +1051,15 @@ body.main .header .menu.auth {
   float: right;
   vertical-align: middle;
 }
-#news .card .foot .likes img {
+#news .card .foot .likes svg {
   vertical-align: middle;
+}
+#news .card .foot .likes svg path:not([fill="none"]) {
+  transition: fill 0.3s;
+  fill: #4396d8;
+}
+#news .card .foot .likes:hover path:not([fill="none"]) {
+  fill: #f44336;
 }
 #news .card .foot .comments {
   float: left;

@@ -388,8 +388,18 @@
 			.likes {
 				float: right;
 				vertical-align: middle;
-				img {
+
+				svg {
 					vertical-align: middle;
+					path:not([fill="none"]) {
+						transition: fill 0.3s;
+						fill: @link-color;
+					}
+				}
+				&:hover {
+					path:not([fill="none"]) {
+						fill: @link-hover-color;
+					}
 				}
 			}
 			.comments {

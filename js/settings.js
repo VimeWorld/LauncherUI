@@ -57,7 +57,7 @@ $(document).on('vimeworld:load', function(event) {
 		themes.push($(this).attr('value'));
 	});
 	if ($.inArray(theme, themes) == -1) {
-		theme = 'light';
+		theme = 'blue';
 		_config.setTheme(theme);
 	}
 	$('#s_theme option[value="' + theme + '"]').attr('selected', '1');

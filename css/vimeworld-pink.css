@@ -46,7 +46,7 @@ html {
   font-weight: 400;
   height: 100%;
   overflow: hidden;
-  color: #eeeeee;
+  color: #333333;
   font-size: 14px;
   line-height: 24px;
 }
@@ -70,7 +70,7 @@ a {
   cursor: pointer;
   text-decoration: none;
   font-weight: 600;
-  color: #6baee0;
+  color: #f96eba;
   transition: color 0.3s;
 }
 a:hover {
@@ -80,7 +80,7 @@ h3 {
   font-weight: normal;
   margin: 10px 0;
   padding-left: 10px;
-  border-left: 4px solid #62b9ff;
+  border-left: 4px solid #ffadc8;
 }
 ul {
   padding-left: 15px;
@@ -95,7 +95,7 @@ li:before {
   right: 7px;
   position: relative;
   content: '■';
-  color: #62b9ff;
+  color: #ffadc8;
 }
 p {
   text-indent: 15px;
@@ -106,13 +106,13 @@ input[type="password"],
 input[type="text"],
 select {
   border-radius: 2px;
-  border: solid 1px #777777;
+  border: solid 1px #ffbad5;
   padding: 7px 8px;
   margin: 0;
   font-size: 14px;
   transition: border 0.3s;
-  background-color: #363939;
-  color: #eeeeee;
+  background-color: #fff5fb;
+  color: #333333;
 }
 input[type="email"]:focus,
 input[type="number"]:focus,
@@ -120,7 +120,7 @@ input[type="password"]:focus,
 input[type="text"]:focus,
 select:focus {
   outline: none;
-  border: solid 1px #62b9ff;
+  border: solid 1px #ffadc8;
   box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 input[type="email"][readonly],
@@ -128,12 +128,12 @@ input[type="number"][readonly],
 input[type="password"][readonly],
 input[type="text"][readonly],
 select[readonly] {
-  background-color: #2f3131;
+  background-color: #ffd1ed;
 }
 select {
   -webkit-appearance: none;
   padding-right: 25px;
-  background: url('../img/svg/chevron-down.svg') no-repeat right 5px top 50% #363939;
+  background: url('../img/svg/chevron-down.svg') no-repeat right 5px top 50% #fff5fb;
 }
 label {
   cursor: pointer;
@@ -146,10 +146,10 @@ progress {
   padding: 0;
 }
 progress::-webkit-progress-bar {
-  background-color: #f1f9ff;
+  background-color: #ffffff;
 }
 progress::-webkit-progress-value {
-  background-color: #62b9ff;
+  background-color: #ffadc8;
 }
 .input-addon-right {
   overflow: auto;
@@ -168,10 +168,10 @@ progress::-webkit-progress-value {
 }
 .input-addon-right .addon {
   display: inline-block;
-  background: #2f3131;
+  background: #ffd1ed;
   float: left;
   line-height: 33px;
-  border: solid 1px #777777;
+  border: solid 1px #ffbad5;
   border-left: none;
   padding: 0 5px;
   border-bottom-right-radius: 2px;
@@ -191,10 +191,10 @@ progress::-webkit-progress-value {
 }
 .input-addon-center .addon {
   display: inline-block;
-  background: #2f3131;
+  background: #ffd1ed;
   float: left;
   line-height: 33px;
-  border: solid 1px #777777;
+  border: solid 1px #ffbad5;
   border-left: none;
   border-right: none;
   padding: 0 5px;
@@ -223,7 +223,7 @@ progress::-webkit-progress-value {
   padding: 0;
 }
 .checkbox > label {
-  color: #eeeeee;
+  color: #333333;
   padding-left: 2rem;
   position: relative;
 }
@@ -231,7 +231,7 @@ progress::-webkit-progress-value {
   display: none;
 }
 .checkbox > label:before {
-  border-color: #777777;
+  border-color: #ffbad5;
   border-style: solid;
   border-width: 1px;
   content: '';
@@ -243,7 +243,7 @@ progress::-webkit-progress-value {
   width: 1rem;
 }
 .checkbox > input[type='checkbox']:checked + label:before {
-  border-color: #333333;
+  border-color: #ff6095;
   border-width: 2px;
   border-right-style: none;
   border-top-style: none;
@@ -318,7 +318,7 @@ progress::-webkit-progress-value {
   position: relative;
 }
 .dropdown:hover {
-  color: #bbbbbb;
+  color: #5e5e5e;
 }
 .dropdown div {
   cursor: inherit;
@@ -343,14 +343,14 @@ progress::-webkit-progress-value {
   padding: 8px 0;
   font-size: 13px;
   -webkit-animation-duration: 0.3s;
-  background: #404343;
+  background: #fff5fb;
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 .dropdown ul::before {
   content: '';
   width: 20px;
   height: 20px;
-  background: #404343;
+  background: #fff5fb;
   position: absolute;
   left: 96px;
   -webkit-transform: rotate(45deg);
@@ -373,7 +373,7 @@ progress::-webkit-progress-value {
   bottom: -10px;
 }
 .dropdown ul li {
-  background: #404343;
+  background: #fff5fb;
   margin: 0;
   padding: 0;
   position: relative;
@@ -385,15 +385,15 @@ progress::-webkit-progress-value {
 .dropdown ul li.divider {
   height: 1px;
   margin: 8px 0;
-  background: #777777;
+  background: #ffbad5;
 }
 .dropdown ul li a {
   display: block;
   padding: 6px 10px;
-  color: #b7b7b7;
+  color: #595959;
 }
 .dropdown ul li a:hover {
-  background: #2f3131;
+  background: #ffd1ed;
 }
 .muted {
   color: #aaa;
@@ -431,8 +431,8 @@ progress::-webkit-progress-value {
 #overlay .popup {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   width: 380px;
-  background: #404343;
-  border: 1px solid #62b9ff;
+  background: #fff5fb;
+  border: 1px solid #ffadc8;
   padding: 20px;
   display: none;
 }
@@ -534,7 +534,7 @@ progress::-webkit-progress-value {
   min-height: 80px;
 }
 .svg-loading {
-  fill: #333333;
+  fill: #ff6095;
 }
 .clearfix {
   display: block;
@@ -583,7 +583,7 @@ body.main .header .menu.auth {
   margin-bottom: 3px;
 }
 .header {
-  background-color: #333333;
+  background-color: #ff6095;
   color: #fefefe;
   height: 58px;
   padding: 10px;
@@ -694,7 +694,7 @@ body.main .header .menu.auth {
   position: relative;
   background: fixed url('../img/bg.jpg') no-repeat center center;
   background-size: cover;
-  border: solid 1px #333333;
+  border: solid 1px #ff6095;
   border-top: none;
 }
 #content .tab {
@@ -707,8 +707,8 @@ body.main .header .menu.auth {
   display: none;
 }
 #content .card {
-  background: #404343;
-  border: solid 1px #777777;
+  background: #fff5fb;
+  border: solid 1px #ffbad5;
   box-shadow: 0 0 13px 1px rgba(0, 0, 0, 0.2);
   padding: 20px 25px;
   width: 400px;
@@ -720,7 +720,7 @@ body.main .header .menu.auth {
   padding-bottom: 15px;
   margin: 0 0 10px;
   font-size: 22px;
-  border-bottom: solid 1px #62b9ff;
+  border-bottom: solid 1px #ffadc8;
   font-weight: 300;
 }
 #content .card .card-form {
@@ -747,7 +747,7 @@ body.main .header .menu.auth {
   width: 220px;
   float: left;
   padding: 10px 15px;
-  background-color: #404343;
+  background-color: #fff5fb;
   height: calc(100% - 20px);
 }
 #play #servers header {
@@ -755,7 +755,7 @@ body.main .header .menu.auth {
   padding-bottom: 15px;
   margin-bottom: 10px;
   font-size: 22px;
-  border-bottom: solid 1px #62b9ff;
+  border-bottom: solid 1px #ffadc8;
   font-weight: 300;
   margin-bottom: 0;
 }
@@ -771,19 +771,19 @@ body.main .header .menu.auth {
   content: '';
 }
 #play #servers .server {
-  border-bottom: 1px solid #343636;
+  border-bottom: 1px solid #ffdcf1;
   transition-property: background-color, color;
   transition-duration: 0.3s;
   cursor: pointer;
 }
 #play #servers .server:hover {
-  background-color: #343636;
+  background-color: #ffdcf1;
 }
 #play #servers .server:hover .muted {
   color: #898989;
 }
 #play #servers .server.active {
-  background-color: #333333;
+  background-color: #ff6095;
   color: #fff;
   font-weight: bold;
 }
@@ -802,7 +802,7 @@ body.main .header .menu.auth {
   font-size: 13px;
 }
 #play #servers #total-online {
-  border-top: 1px solid #62b9ff;
+  border-top: 1px solid #ffadc8;
   padding-top: 8px;
   text-align: center;
 }
@@ -815,7 +815,7 @@ body.main .header .menu.auth {
   margin-top: 10px;
   margin-right: 10px;
   padding: 10px 20px 13px;
-  background-color: #404343;
+  background-color: #fff5fb;
   height: calc(100% - 20px);
   position: relative;
 }
@@ -884,7 +884,7 @@ body.main .header .menu.auth {
   font-weight: normal;
 }
 #play .play_body .description .mods a:not(:hover) {
-  color: #287dbd;
+  color: #f50c8b;
 }
 #play .play_body .description .mods .version {
   color: #aaa;
@@ -893,10 +893,10 @@ body.main .header .menu.auth {
 #play .play_body .bottom {
   position: absolute;
   bottom: 10px;
-  background: #404343;
+  background: #fff5fb;
   width: calc(100% - 40px);
   padding-top: 7px;
-  border-top: 1px solid #62b9ff;
+  border-top: 1px solid #ffadc8;
 }
 #play .play_body .bottom .loading-info {
   bottom: 0;
@@ -913,7 +913,7 @@ body.main .header .menu.auth {
 }
 #play .play_body .bottom .loading-info #loading-bar-container progress {
   height: 25px;
-  border: 1px solid #62b9ff;
+  border: 1px solid #ffadc8;
   border-radius: 2px;
   position: absolute;
 }
@@ -990,7 +990,7 @@ body.main .header .menu.auth {
   display: block;
   position: relative;
   z-index: 2;
-  box-shadow: 0 -5px 10px 3px #404343;
+  box-shadow: 0 -5px 10px 3px #fff5fb;
 }
 #news .card .text p {
   margin-top: 0;
@@ -1056,7 +1056,7 @@ body.main .header .menu.auth {
 }
 #news .card .foot .likes svg path:not([fill="none"]) {
   transition: fill 0.3s;
-  fill: #6baee0;
+  fill: #f96eba;
 }
 #news .card .foot .likes:hover path:not([fill="none"]) {
   fill: #f44336;
@@ -1081,17 +1081,11 @@ body.main .header .menu.auth {
   width: 149px;
 }
 #content {
-  background-image: url('../img/bg-dark.jpg');
+  background-image: url('../img/bg-pink.jpg');
 }
-.mods a:not(:hover) {
-  color: #6baee0 !important;
+.btn.btn-primary {
+  background: #fb80a9;
 }
-.checkbox > input[type='checkbox']:checked + label:before {
-  border-color: #62b9ff;
-}
-#loading-bar-text {
-  text-shadow: 0 0 10px #000000, 0 0 10px #000000 !important;
-}
-progress::-webkit-progress-bar {
-  background-color: #393b3b;
+.btn.btn-primary::after {
+  background: #ff6095;
 }

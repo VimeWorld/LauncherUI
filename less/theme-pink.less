@@ -1,0 +1,25 @@
+// out: ../css/vimeworld-pink.css
+// out: ../css/vimeworld-pink.min.css, compress: true
+@text-color: #333;
+@link-color: #f96eba;
+@link-hover-color: #F44336;
+@main-color: #ff6095;
+@background-color: #fff5fb;
+@border-color: lighten(saturate(@main-color, 15%), 15%);
+@border-color2: #ffbad5;
+@header-height: 58px;
+@input-color: @background-color;
+@import "vimeworld";
+
+// Changes
+#content {
+	background-image: url('../img/bg-pink.jpg');
+}
+.btn {
+	&&-primary {
+		background: #fb80a9;
+		&::after {
+			background: @main-color;
+		}
+	}
+}
