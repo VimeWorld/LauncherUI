@@ -39,6 +39,9 @@ $(document).ready(function() {
 					return;
 				}
 				btn.addClass('btn-notransform');
+				setTimeout(function() {
+					btn.removeClass('btn-notransform');
+				}, 1000);
 				$password.val('');
 				$('#username').text(username = _user.getUsername());
 				$('body').attr('class', 'main');

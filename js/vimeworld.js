@@ -228,6 +228,20 @@ $(document).ready(function() {
 			_common.openURL(href);
 			return;
 		}
+		if (href.substr(0, 1) == '@') {
+			if (href.indexOf(':') > 0) {
+				var [action, value] = href.split(':');
+				_common.print(action);
+				switch (action) {
+					case '@click':
+						$(value).trigger('click');
+						break;
+					case "@tab":
+						$('.header .menu a[href="#' + value + '"]').trigger('click');
+						break;
+				}
+			}
+		}
 	});
 
 	setInterval(function() {
