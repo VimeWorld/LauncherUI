@@ -3,7 +3,7 @@
 * Здесь написаны всякие стили для элементов, которые находятся в шапке лаунчера
 */
 
-.logo{
+.logo {
 	float: left;
 	font-weight: 600;
 	font-size: 24px;
@@ -11,24 +11,24 @@
 	margin-right: 20px;
 	margin-top: 4px;
 
-	span{
+	span {
 		position: relative;
 		top: 2px;
 		left: 10px;
 	}
-	img{
+	img {
 		height: 30px;
 		vertical-align: middle;
 		margin-bottom: 3px;
 	}
 }
 
-.header{
+.header {
 	background-color: @main-color;
 	color: #fefefe;
 	height: @header-height;
 	padding: 10px;
-	box-shadow: 0px 1px 12px 1px rgba(0,0,0,0.32);
+	box-shadow: 0 1px 12px 1px rgba(0,0,0,0.32);
 	position: relative;
 	z-index: 100;
 
@@ -40,7 +40,7 @@
 			float: left;
 			margin: 2px;
 
-			&::before{
+			&::before {
 				content: '';
 			}
 		}
@@ -51,31 +51,29 @@
 			font-size: 18px;
 			opacity: 0.7;
 			transition-property: opacity, background-color;
-			transition-duration: .3s, .2s;
+			transition-duration: 0.3s, 0.2s;
 			transition-timing-function: ease;
 			font-weight: 600;
 			position: relative;
-
-			&:hover{
+			&:hover {
 				opacity: 1;
 			}
-
-			&:active{
+			&:active {
 				line-height: 40px;
-				opacity: .8;
+				opacity: 0.8;
 			}
 
-			&.active{
+			&.active {
 				opacity: 1;
 				background-color: rgba(255, 255, 255, 0.14);
 				cursor: default;
 			}
 
 			i {
-			    font-size: 11px;
-			    position: relative;
-			    top: -8px;
-			    left: -2px;
+				font-size: 11px;
+				position: relative;
+				top: -8px;
+				left: -2px;
 			}
 
 			.m_n_unwatched {
@@ -86,60 +84,56 @@
 				line-height: 11px;
 				padding: 3px 5px;
 				right: -1px;
-    			top: -3px;
+				top: -3px;
 				border-radius: 50px;
 				font-weight: normal;
-
-				&:empty{
+				&:empty {
 					display: none;
 				}
 			}
 		}
 	}
 
-	.controls{
+	.controls {
 		float: right;
 
-		& > div{
+		& > div {
 			float: left;
 			cursor: pointer;
 			color: #fefefe;
 			padding: 3px 8px 7px;
 			font-size: 15px;
-			transition: color .2s ease;
-
-			&:active{
+			transition: color 0.2s ease;
+			&:active {
 				margin-top: 1px;
 			}
 		}
 
-		#gui_close{
-			&:hover{
+		#gui_close {
+			&:hover {
 				color: #FF8989;
 			}
-			&:active{
+			&:active {
 				color: #AD4E4E;
 			}
 		}
-		#gui_min{
-		    padding: 4px 8px 6px;
-
-			&:hover{
+		#gui_min {
+			padding: 4px 8px 6px;
+			&:hover {
 				color: #BDD9FF;
 			}
-			&:active{
+			&:active {
 				color: #5C7596;
 			}
 		}
 	}
 
-	.dropdown{
+	.dropdown {
 		color: rgba(255, 255, 255, 0.7);
 		font-weight: 600;
 		margin-top: 5px;
 		margin-right: 35px;
-
-		&:hover{
+		&:hover {
 			color: #fff;
 		}
 	}

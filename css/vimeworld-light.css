@@ -5,37 +5,37 @@
   font-family: 'OSoverride';
   font-style: normal;
   font-weight: 300;
-  src: url(../fonts/OpenSansLight.woff) format('woff'), url(../fonts/OpenSansLight.ttf) format('truetype');
+  src: url('../fonts/OpenSansLight.woff') format('woff'), url('../fonts/OpenSansLight.ttf') format('truetype');
 }
 @font-face {
   font-family: 'OSoverride';
   font-style: italic;
   font-weight: 300;
-  src: url(../fonts/OpenSansLightItalic.woff) format('woff'), url(../fonts/OpenSansLightItalic.ttf) format('truetype');
+  src: url('../fonts/OpenSansLightItalic.woff') format('woff'), url('../fonts/OpenSansLightItalic.ttf') format('truetype');
 }
 @font-face {
   font-family: 'OSoverride';
   font-style: normal;
   font-weight: 400;
-  src: url(../fonts/OpenSansRegular.woff) format('woff'), url(../fonts/OpenSansRegular.ttf) format('truetype');
+  src: url('../fonts/OpenSansRegular.woff') format('woff'), url('../fonts/OpenSansRegular.ttf') format('truetype');
 }
 @font-face {
   font-family: 'OSoverride';
   font-style: italic;
   font-weight: 400;
-  src: url(../fonts/OpenSansRegularItalic.woff) format('woff'), url(../fonts/OpenSansRegularItalic.ttf) format('truetype');
+  src: url('../fonts/OpenSansRegularItalic.woff') format('woff'), url('../fonts/OpenSansRegularItalic.ttf') format('truetype');
 }
 @font-face {
   font-family: 'OSoverride';
   font-style: normal;
   font-weight: 600;
-  src: url(../fonts/OpenSansSemiBold.woff) format('woff'), url(../fonts/OpenSansSemiBold.ttf) format('truetype');
+  src: url('../fonts/OpenSansSemiBold.woff') format('woff'), url('../fonts/OpenSansSemiBold.ttf') format('truetype');
 }
 @font-face {
   font-family: 'OSoverride';
   font-style: normal;
   font-weight: 700;
-  src: url(../fonts/OpenSansBold.woff) format('woff'), url(../fonts/OpenSansBold.ttf) format('truetype');
+  src: url('../fonts/OpenSansBold.woff') format('woff'), url('../fonts/OpenSansBold.ttf') format('truetype');
 }
 /**********************
 	Общие стили
@@ -54,13 +54,13 @@ input {
   font-family: 'OSoverride';
   box-sizing: border-box;
 }
-div,
 body,
-html,
+button,
+div,
 header,
-ul,
+html,
 li,
-button {
+ul {
   margin: 0;
   padding: 0;
   cursor: default;
@@ -71,7 +71,7 @@ a {
   text-decoration: none;
   font-weight: 600;
   color: #4396d8;
-  transition: color .3s;
+  transition: color 0.3s;
 }
 a:hover {
   color: #f44336;
@@ -94,46 +94,46 @@ li:before {
   bottom: 2px;
   right: 7px;
   position: relative;
-  content: "■";
+  content: '■';
   color: #62b9ff;
 }
 p {
   text-indent: 15px;
 }
-input[type="text"],
-input[type="password"],
-input[type="number"],
 input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="text"],
 select {
   border-radius: 2px;
   border: solid 1px #cccccc;
   padding: 7px 8px;
   margin: 0;
   font-size: 14px;
-  transition: border .3s;
+  transition: border 0.3s;
   background-color: #ffffff;
   color: #333333;
 }
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="number"]:focus,
 input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus,
 select:focus {
   outline: none;
   border: solid 1px #62b9ff;
   box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
-input[type="text"][readonly],
-input[type="password"][readonly],
-input[type="number"][readonly],
 input[type="email"][readonly],
+input[type="number"][readonly],
+input[type="password"][readonly],
+input[type="text"][readonly],
 select[readonly] {
   background-color: #ededed;
 }
 select {
   -webkit-appearance: none;
   padding-right: 25px;
-  background: url(../img/svg/chevron-down.svg) no-repeat right 5px top 50% #ffffff;
+  background: url('../img/svg/chevron-down.svg') no-repeat right 5px top 50% #ffffff;
 }
 label {
   cursor: pointer;
@@ -213,14 +213,14 @@ progress::-webkit-progress-value {
 }
 .checkbox {
   display: inline-block;
-  padding: 0px;
+  padding: 0;
   position: relative;
   margin-bottom: 12px;
 }
 .checkbox > * {
   cursor: pointer;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 .checkbox > label {
   color: #333333;
@@ -234,9 +234,9 @@ progress::-webkit-progress-value {
   border-color: #cccccc;
   border-style: solid;
   border-width: 1px;
-  content: "";
+  content: '';
   height: 1rem;
-  left: 0%;
+  left: 0;
   position: absolute;
   top: 2px;
   transition: all 0.2s ease-out;
@@ -247,7 +247,7 @@ progress::-webkit-progress-value {
   border-width: 2px;
   border-right-style: none;
   border-top-style: none;
-  height: .5rem;
+  height: 0.5rem;
   top: 5px;
   -webkit-transform: rotate(-45deg);
 }
@@ -258,7 +258,7 @@ progress::-webkit-progress-value {
   overflow: hidden;
   z-index: 1;
   cursor: pointer;
-  transition: color .3s;
+  transition: color 0.3s;
   text-align: center;
   color: #fff;
   border: none;
@@ -282,7 +282,7 @@ progress::-webkit-progress-value {
   width: 100%;
   height: 100%;
   background: #565656;
-  content: "";
+  content: '';
   z-index: -2;
   transition: -webkit-transform 0.3s;
 }
@@ -314,7 +314,7 @@ progress::-webkit-progress-value {
   display: inline-block;
   padding: 0 5px;
   cursor: pointer;
-  transition: color .2s ease;
+  transition: color 0.2s ease;
   position: relative;
 }
 .dropdown:hover {
@@ -342,12 +342,12 @@ progress::-webkit-progress-value {
   opacity: 0;
   padding: 8px 0;
   font-size: 13px;
-  -webkit-animation-duration: .3s;
+  -webkit-animation-duration: 0.3s;
   background: #ffffff;
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 .dropdown ul::before {
-  content: "";
+  content: '';
   width: 20px;
   height: 20px;
   background: #ffffff;
@@ -369,7 +369,7 @@ progress::-webkit-progress-value {
   bottom: 34px;
 }
 .dropdown ul.top::before {
-  box-shadow: 2px 2px 4px -1px rgba(0, 0, 0, 0.14), 1px 1px 2px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 4px -1px rgba(0, 0, 0, 0.14), 1px 1px 2px 0 rgba(0, 0, 0, 0.2);
   bottom: -10px;
 }
 .dropdown ul li {
@@ -460,7 +460,7 @@ progress::-webkit-progress-value {
   border: 1px solid #eed3d7;
   float: right;
   clear: right;
-  -webkit-animation-duration: .4s;
+  -webkit-animation-duration: 0.4s;
   color: white;
 }
 #ohsnap .alert-red {
@@ -541,7 +541,7 @@ progress::-webkit-progress-value {
   zoom: 1;
 }
 .clearfix:after {
-  content: " ";
+  content: ' ';
   display: block;
   font-size: 0;
   height: 0;
@@ -587,7 +587,7 @@ body.main .header .menu.auth {
   color: #fefefe;
   height: 58px;
   padding: 10px;
-  box-shadow: 0px 1px 12px 1px rgba(0, 0, 0, 0.32);
+  box-shadow: 0 1px 12px 1px rgba(0, 0, 0, 0.32);
   position: relative;
   z-index: 100;
 }
@@ -609,7 +609,7 @@ body.main .header .menu.auth {
   font-size: 18px;
   opacity: 0.7;
   transition-property: opacity, background-color;
-  transition-duration: .3s, .2s;
+  transition-duration: 0.3s, 0.2s;
   transition-timing-function: ease;
   font-weight: 600;
   position: relative;
@@ -619,7 +619,7 @@ body.main .header .menu.auth {
 }
 .header .menu a:active {
   line-height: 40px;
-  opacity: .8;
+  opacity: 0.8;
 }
 .header .menu a.active {
   opacity: 1;
@@ -656,7 +656,7 @@ body.main .header .menu.auth {
   color: #fefefe;
   padding: 3px 8px 7px;
   font-size: 15px;
-  transition: color .2s ease;
+  transition: color 0.2s ease;
 }
 .header .controls > div:active {
   margin-top: 1px;
@@ -692,7 +692,7 @@ body.main .header .menu.auth {
   height: calc(100% - 58px);
   width: 100%;
   position: relative;
-  background: fixed url(../img/bg.jpg) no-repeat center center;
+  background: fixed url('../img/bg.jpg') no-repeat center center;
   background-size: cover;
   border: solid 1px #2196f3;
   border-top: none;
@@ -700,7 +700,7 @@ body.main .header .menu.auth {
 #content .tab {
   z-index: 1;
   position: absolute;
-  -webkit-animation-duration: .4s;
+  -webkit-animation-duration: 0.4s;
   width: 100%;
 }
 #content .tab.hidden {
@@ -709,7 +709,7 @@ body.main .header .menu.auth {
 #content .card {
   background: #ffffff;
   border: solid 1px #cccccc;
-  box-shadow: 0 0px 13px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 13px 1px rgba(0, 0, 0, 0.2);
   padding: 20px 25px;
   width: 400px;
   margin: 20px auto;
@@ -718,8 +718,7 @@ body.main .header .menu.auth {
 }
 #content .card h1 {
   padding-bottom: 15px;
-  margin: 0;
-  margin-bottom: 10px;
+  margin: 0 0 10px;
   font-size: 22px;
   border-bottom: solid 1px #62b9ff;
   font-weight: 300;
@@ -774,7 +773,7 @@ body.main .header .menu.auth {
 #play #servers .server {
   border-bottom: 1px solid #f2f2f2;
   transition-property: background-color, color;
-  transition-duration: .3s;
+  transition-duration: 0.3s;
   cursor: pointer;
 }
 #play #servers .server:hover {
@@ -833,7 +832,7 @@ body.main .header .menu.auth {
   color: #888;
 }
 #play .play_body .description #server-online .muted::before {
-  content: "Онлайн: ";
+  content: 'Онлайн: ';
 }
 #play .play_body .description #server-description {
   height: calc(100% - 130px);
@@ -858,7 +857,7 @@ body.main .header .menu.auth {
 #play .play_body .description .minigames-list > a img {
   width: 110px;
   heigth: 110px;
-  transition: all .1s ease;
+  transition: all 0.1s ease;
 }
 #play .play_body .description .minigames-list > a img:hover {
   width: 130px;
@@ -870,8 +869,8 @@ body.main .header .menu.auth {
   position: absolute;
   line-height: 14px;
   color: #555;
-  top: 0px;
-  right: 0px;
+  top: 0;
+  right: 0;
   padding: 2px;
   border-bottom-left-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.5);
@@ -991,10 +990,10 @@ body.main .header .menu.auth {
   display: block;
   position: relative;
   z-index: 2;
-  box-shadow: 0px -5px 10px 3px #ffffff;
+  box-shadow: 0 -5px 10px 3px #ffffff;
 }
 #news .card .text p {
-  margin-top: 0px;
+  margin-top: 0;
   margin-bottom: 7px;
 }
 #news .card .text img {
@@ -1002,7 +1001,7 @@ body.main .header .menu.auth {
   margin: 0 auto;
 }
 #news .card .text .video {
-  text-indent: 0px;
+  text-indent: 0;
   text-align: center;
 }
 #news .card .text .video span {

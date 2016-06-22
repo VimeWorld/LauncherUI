@@ -1,0 +1,25 @@
+{
+    "html": {
+        "brace_style": "collapse",
+        "indent_scripts": "normal",
+        "indent_char": "	",
+        "indent_size": 1,
+        "max_preserve_newlines": 1,
+        "preserve_newlines": true,
+        "wrap_line_length": 0,
+		"extra_liners": ["head", "body", "/html"]
+    },
+	"js": {
+		"indent_with_tabs": true,
+		"space_before_conditional": true,
+		"end_with_newline": true
+	},
+	"less": {
+		"convert_quotes": "single",
+		"indent_comments": true,
+		"preserve_newlines": true,
+		"wrap_line_length": 0,
+        "indent_char": "	",
+        "indent_size": 1
+	}
+}

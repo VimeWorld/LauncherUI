@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>VimeWorld Launcher</title>
 	<meta charset="utf-8">
@@ -11,7 +12,8 @@
 	<link id="h_theme" rel="stylesheet" href="css/vimeworld-light.css">
 	<script type="text/javascript">
 		const t_loader = '<div><svg class="svg-loading" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="48" height="48"><path transform="translate(2)" d="M 0 11.5239 V 20.4761 H 4 V 11.5239 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path><path transform="translate(8)" d="M 0 9.06868 V 22.9313 H 4 V 9.06868 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0.2" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path><path transform="translate(14)" d="M 0 4.56017 V 27.4398 H 4 V 4.56017 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0.4" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path><path transform="translate(20)" d="M 0 8.17295 V 23.827 H 4 V 8.17295 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0.6" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path><path transform="translate(26)" d="M 0 12 V 20 H 4 V 12 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0.8" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path></svg></div>';
-		const t_loader_center = '<div style="text-align: center; margin-top: 50px;">'+t_loader+'</div>';
+		const t_loader_center = '<div style="text-align: center; margin-top: 50px;">' + t_loader + '</div>';
+
 	</script>
 	<script src="js/libs/jquery-2.1.4.min.js"></script>
 	<script src="js/libs/jquery.tooltipster.min.js"></script>
@@ -27,20 +29,27 @@
 	<script src="js/settings.js"></script>
 	<script src="js/play.js"></script>
 </head>
+
 <body class="auth">
 	<!-- Шаблоны -->
 	<script type="text/html" id="tpl_server_list_item">
 		<li id="srv_<%=id%>" class="server" data-id="<%=id%>">
 			<%=name%>
-			<span class="status"></span>
+				<span class="status"></span>
 		</li>
 	</script>
 	<script type="text/html" id="tpl_news_post">
 		<div id="post_<%=id%>" class="card">
 			<h1><a href="https://vk.com/wall<%=owner_id%>_<%=id%>">VimeWorld.ru</a><span class="time-from-now" data-time="<%=date%>"><%=moment(date, "X").fromNow()%></span></h1>
-			<div class="text" data-id="<%=id%>"><%=text%></div>
+			<div class="text" data-id="<%=id%>">
+				<%=text%>
+			</div>
 			<div class="foot clearfix">
-				<div class="likes"><a href="https://vk.com/wall<%=owner_id%>_<%=id%>"><img src="img/svg/likes.svg"> <%=likes.count%></a></div>
+				<div class="likes">
+					<a href="https://vk.com/wall<%=owner_id%>_<%=id%>"><img src="img/svg/likes.svg">
+						<%=likes.count%>
+					</a>
+				</div>
 				<div class="comments"><a href="https://vk.com/wall<%=owner_id%>_<%=id%>">Комментариев: <%=comments.count%></a></div>
 			</div>
 		</div>
@@ -59,7 +68,6 @@
 			</a>
 		</div>
 	</script>
-
 
 	<div class="wrap">
 		<!-- Шапка -->
@@ -109,11 +117,12 @@
 							<input type="password" name="password" placeholder="Пароль" onkeydown="if (event.keyCode == 9) $(this).prev().focus()">
 						</div>
 						<div class="checkbox">
-							<input id="s_savepass" type="checkbox"><label for="s_savepass">Запомнить пароль?</label>
+							<input id="s_savepass" type="checkbox">
+							<label for="s_savepass">Запомнить пароль?</label>
 						</div>
-						<button type="submit" class="btn btn-primary" >Войти</button>
+						<button type="submit" class="btn btn-primary">Войти</button>
 						<a href="http://cp.vimeworld.ru/lostpass">Забыли пароль?</a>
-						<a href="#" style="float:right" onclick=$('a[href="#register"]').trigger('click')>Регистрация</a>
+						<a href="#" style="float:right" onclick=$( 'a[href="#register"]').trigger( 'click')>Регистрация</a>
 					</form>
 				</div>
 			</div>
@@ -133,7 +142,7 @@
 							<label for="r_acceptrules">Я согласен(-а) с <a href="http://forum.vimeworld.ru/topic/15-" target="_blank">правилами</a> сервера</label>
 						</div>
 						<button type="submit" class="btn btn-primary">Зарегистрироваться</button>
-						<a href="#" onclick=$('a[href="#auth"]').trigger('click')>Уже зарегистрированы? Войдите</a>
+						<a href="#" onclick=$( 'a[href="#auth"]').trigger( 'click')>Уже зарегистрированы? Войдите</a>
 					</form>
 				</div>
 			</div>
@@ -143,7 +152,12 @@
 				<div class="card" id="servers">
 					<header>Выбор сервера</header>
 					<ul class="scroll-dark">
-						<li style="text-align: center"><script>document.write(t_loader);</script></li>
+						<li style="text-align: center">
+							<script>
+								document.write(t_loader);
+
+							</script>
+						</li>
 					</ul>
 					<div id="total-online"></div>
 				</div>
@@ -151,7 +165,10 @@
 					<div class="description">
 						<h1><span id="server-name">Загрузка...</span><span id="server-online"></span></h1>
 						<div id="server-description" class="scroll-dark">
-							<script>document.write(t_loader_center);</script>
+							<script>
+								document.write(t_loader_center);
+
+							</script>
 						</div>
 					</div>
 					<div class="bottom clearfix">
@@ -181,7 +198,10 @@
 
 			<!-- Новости -->
 			<div class="tab hidden" id="news">
-				<script>document.write(t_loader_center);</script>
+				<script>
+					document.write(t_loader_center);
+
+				</script>
 			</div>
 
 			<!-- Настройки -->
@@ -189,13 +209,17 @@
 				<div class="card">
 					<h1>Настройки</h1>
 					<div class="checkbox">
-						<input id="s_fullscreen" type="checkbox"><label for="s_fullscreen">Запуск в полный экран</label>
+						<input id="s_fullscreen" type="checkbox">
+						<label for="s_fullscreen">Запуск в полный экран</label>
 					</div>
 					<div class="checkbox">
-						<input id="s_useshaders" type="checkbox"><label for="s_useshaders">Использовать шейдеры <!--<span class="muted">(для 1.6.4)</span>--></label>
+						<input id="s_useshaders" type="checkbox">
+						<label for="s_useshaders">Использовать шейдеры
+							<!--<span class="muted">(для 1.6.4)</span>--></label>
 					</div>
 					<div class="checkbox">
-						<input id="s_smoothscroll" type="checkbox"><label for="s_smoothscroll">Плавная прокрутка <span class="muted">(требуется перезапуск)</span></label>
+						<input id="s_smoothscroll" type="checkbox">
+						<label for="s_smoothscroll">Плавная прокрутка <span class="muted">(требуется перезапуск)</span></label>
 					</div>
 					<div class="input-addon-right">
 						<label for="s_memory">Оперативная память:</label>
@@ -247,4 +271,5 @@
 		</div>
 	</div>
 </body>
+
 </html>
