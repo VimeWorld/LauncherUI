@@ -230,7 +230,9 @@ $(document).ready(function() {
 		}
 		if (href.substr(0, 1) == '@') {
 			if (href.indexOf(':') > 0) {
-				var [action, value] = href.split(':');
+				var split = href.split(':');
+				var action = split[0];
+				var value = split[1];
 				_common.print(action);
 				switch (action) {
 					case '@click':
