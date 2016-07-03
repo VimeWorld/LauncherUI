@@ -41,7 +41,7 @@
 						if (newestPost == -1)
 							newestPost = items[id].id;
 						if (!watched) {
-							if (items[id].id == lastWatched) {
+							if (items[id].id < lastWatched) {
 								watched = true;
 							} else {
 								unwatched++;
