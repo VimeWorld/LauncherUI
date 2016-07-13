@@ -1,4 +1,9 @@
 $(document).ready(function() {
+	vw.showNeedUpdate = function() {
+		overlay.show(function() {}, false);
+		$('#update-popup').addClass('active');
+	};
+
 	$('#auth-form').submit(function() {
 		var $username = $(this).find('input[name="username"]');
 		var $password = $(this).find('input[name="password"]');
@@ -34,8 +39,7 @@ $(document).ready(function() {
 					return;
 				}
 				if (data == 'update') {
-					overlay.show(function() {}, false);
-					$('#update-popup').addClass('active');
+					vw.showNeedUpdate();
 					return;
 				}
 				btn.addClass('btn-notransform');

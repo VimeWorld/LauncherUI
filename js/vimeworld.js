@@ -2,6 +2,8 @@
  * VimeWorld.ru Launcher script
  */
 
+vw = {};
+
 var tooltipster_error = {
 	timer: 1500,
 	position: 'top-right',
