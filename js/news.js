@@ -6,6 +6,7 @@
 	var newsAdded = 0;
 	var lastWatched = -1;
 	var newestPost = -1;
+	var pinned = null;
 
 	function load_news() {
 		if (loading)
@@ -38,17 +39,26 @@
 				var watched = false;
 				for (id in items) {
 					if (items[id].text.indexOf('#offtop') == -1) {
-						if (newestPost == -1)
-							newestPost = items[id].id;
-						if (!watched) {
-							if (items[id].id < lastWatched) {
-								watched = true;
-							} else {
-								unwatched++;
+						if (items[id].is_pinned) {
+							pinned = items[id];
+						} else {
+							if (newestPost == -1)
+								newestPost = items[id].id;
+							if (!watched) {
+								if (items[id].id <= lastWatched) {
+									watched = true;
+								} else {
+									unwatched++;
+								}
 							}
+							if (pinned != null && items[id].id < pinned.id) {
+								addPost(pinned);
+								newsAdded++;
+								pinned = null;
+							}
+							addPost(items[id]);
+							newsAdded++;
 						}
-						addPost(items[id]);
-						newsAdded++;
 					}
 				}
 
