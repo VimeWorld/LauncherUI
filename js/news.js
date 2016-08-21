@@ -14,7 +14,7 @@
 
 		loading = true;
 		ajax({
-			url: 'https://api.vk.com/method/wall.get',
+			url: 'http://api.vk.com/method/wall.get',
 			data: {
 				owner_id: group_id,
 				count: perPage,
@@ -89,7 +89,8 @@
 		var lines = post.text.split('\n');
 		var listStart = -1;
 		for (i in lines) {
-			if (lines[i].substr(0, 1) == '-') {
+			var c = lines[i].substr(0, 1);
+			if (c == '-' || c == '—') {
 				lines[i] = '<li>' + lines[i].substr(1) + '</li>';
 				if (listStart == -1) {
 					listStart = i;

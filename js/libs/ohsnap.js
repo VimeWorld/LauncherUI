@@ -12,34 +12,34 @@
  * Params:
  *  text: text to show
  *  color: color of the toast. one of red, green, blue, orange, yellow or custom
-*/
+ */
 function ohSnap(text, color, icon) {
-    var icon_markup = "",
-        html,
-        time = '3000',
-        $container = $('#ohsnap');
+	var icon_markup = "",
+		html,
+		time = '3000',
+		$container = $('#ohsnap');
 
-    if (icon) {
-        icon_markup = "<span class='" + icon + "'></span> ";
-    }
+	if (icon) {
+		icon_markup = "<span class='" + icon + "'></span> ";
+	}
 
-    // Generate the HTML
-    html = $('<div class="alert alert-' + color + ' animated fadeInRight">' + icon_markup + text + '</div>').fadeIn('fast');
+	// Generate the HTML
+	html = $('<div class="alert alert-' + color + ' animated fadeInRight">' + icon_markup + text + '</div>').fadeIn('fast');
 
-    // Append the label to the container
-    $container.append(html);
+	// Append the label to the container
+	$container.append(html);
 
-    // Remove the notification on click
-    html.on('click', function() {
-		$(this).addClass('fadeOutRight').one('webkitAnimationEnd animationend', function(){
+	// Remove the notification on click
+	html.on('click', function() {
+		$(this).addClass('fadeOutRight').one('webkitAnimationEnd animationend', function() {
 			$(this).remove();
 		});
-    });
+	});
 
-    // After 'time' seconds, the animation fades out
-    setTimeout(function() {
-        html.addClass('fadeOutRight').one('webkitAnimationEnd animationend', function(){
+	// After 'time' seconds, the animation fades out
+	setTimeout(function() {
+		html.addClass('fadeOutRight').one('webkitAnimationEnd animationend', function() {
 			$(this).remove();
 		});
-    }, time);
+	}, time);
 }
