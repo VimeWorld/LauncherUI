@@ -1,0 +1,55 @@
+// out: ../css/vimeworld-hacker.css
+// out: ../css/vimeworld-hacker.min.css, compress: true
+@text-color: #0c0;
+@link-color: #c00;
+@link-hover-color: #F44336;
+@main-color: #000000;
+@background-color: #000000;
+@border-color: #fff;
+@border-color2: #080;
+@header-height: 58px;
+@input-color: @background-color;
+@import "vimeworld";
+
+body {
+	font-family: "Lucida Console", Monaco, monospace;
+}
+// Changes
+#content {
+	background-image: url('../img/bg-hacker.jpg');
+	background-size: contain;
+	border: solid 1px #070;
+	border-top: none;
+}
+.header {
+	border: solid 1px #070;
+}
+#play #servers .server {
+	&:hover {
+		background-color: #020;
+	}
+	&.active {
+		background-color: #030;
+	}
+}
+.scroll-dark {
+	&::-webkit-scrollbar-track {
+		border-left: 1px solid rgba(255, 255, 255, .07);
+		background-color: rgba(255, 255, 255, .04);
+		&:hover {
+			background-color: rgba(255, 255, 255, .1);
+		}
+		&:active {
+			background-color: rgba(255, 255, 255, .12);
+		}
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: rgba(255, 255, 255, .13);
+		&:hover {
+			background-color: rgba(255, 255, 255, .13);
+		}
+		&:active {
+			background-color: rgba(255, 255, 255, .17);
+		}
+	}
+}
