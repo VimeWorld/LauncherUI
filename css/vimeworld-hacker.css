@@ -1117,3 +1117,19 @@ body {
 .scroll-dark::-webkit-scrollbar-thumb:active {
   background-color: rgba(255, 255, 255, 0.17);
 }
+.checkbox > label:before {
+  top: 0px;
+}
+.checkbox > input[type='checkbox']:checked + label:before {
+  border-color: #00cc00;
+  top: 0px;
+}
+.dropdown ul {
+  border: solid 1px #070;
+}
+.dropdown ul::before {
+  display: none;
+}
+.dropdown ul li a:hover {
+  background-color: #020;
+}

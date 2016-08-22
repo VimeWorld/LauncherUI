@@ -53,3 +53,24 @@ body {
 		}
 	}
 }
+.checkbox {
+	& > label:before {
+		top: 0px;
+	}
+	& > input[type='checkbox']:checked + label:before {
+		border-color: @text-color;
+		top: 0px;
+	}
+}
+.dropdown ul {
+	border: solid 1px #070;
+	
+	&::before {
+		display: none;
+	}
+	li a {
+		&:hover {
+			background-color: #020;
+		}
+	}
+}
