@@ -1133,3 +1133,13 @@ body {
 .dropdown ul li a:hover {
   background-color: #020;
 }
+#loading-bar-container #loading-bar-text {
+  margin-top: 2px;
+  color: #fff;
+}
+#loading-bar-container progress::-webkit-progress-bar {
+  background-color: #020;
+}
+#loading-bar-container progress::-webkit-progress-value {
+  background-color: #008800;
+}
