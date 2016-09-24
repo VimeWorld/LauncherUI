@@ -12,7 +12,7 @@
 @import "vimeworld";
 
 body {
-	font-family: "Lucida Console", Monaco, monospace;
+	font-family: 'Lucida Console', Monaco, monospace;
 }
 // Changes
 #content {
@@ -55,16 +55,16 @@ body {
 }
 .checkbox {
 	& > label:before {
-		top: 0px;
+		top: 0;
 	}
 	& > input[type='checkbox']:checked + label:before {
 		border-color: @text-color;
-		top: 0px;
+		top: 0;
 	}
 }
 .dropdown ul {
 	border: solid 1px #070;
-	
+
 	&::before {
 		display: none;
 	}
