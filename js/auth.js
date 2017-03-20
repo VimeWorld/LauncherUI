@@ -24,11 +24,24 @@ $(document).ready(function() {
 			return false;
 		}
 
+		var totp = '';
+		if (!$('#a_totp').hasClass('hidden')) {
+			var $totp = $(this).find('input[name="totp"]');
+			totp = $totp.val();
+			if (totp == null || (totp.length != 6 && totp.length != 8) || !/^\+?(0|[1-9]\d*)$/.test(totp)) {
+				$totp.tooltipster($.extend(tooltipster_error, {
+					content: 'Вы должны ввести 6-ти или 8-ми значное число'
+				})).tooltipster('show');
+				return false;
+			}
+		}
+
 		var btn = $(this).find('button');
 		btn.attr('disabled', '').text('Авторизация...');
 		_user.login({
 			username: username,
 			password: password,
+			totp: totp,
 			callback: function(data) {
 				btn.removeAttr('disabled').text('Войти');
 				if (data.lastIndexOf('fail', 0) === 0) {
@@ -40,6 +53,14 @@ $(document).ready(function() {
 				}
 				if (data == 'update') {
 					vw.showNeedUpdate();
+					return;
+				}
+				if (data == '2fa') {
+					$('#auth-form input[name="username"]').attr('disabled', 'disabled');
+					$('#auth-form input[name="password"]').attr('disabled', 'disabled');
+					$('#a_totp').slideDown(200).removeClass('hidden').find('input[name="totp"]').focus();
+					$('#a_footer').addClass('hidden');
+					$('#a_footer_totp').removeClass('hidden');
 					return;
 				}
 				btn.addClass('btn-notransform');
@@ -131,6 +152,16 @@ $(document).ready(function() {
 	$('#tocp').click(function() {
 		var base64 = btoa(_user.getUsername() + ":" + _user.getPassword().substr(0, 32));
 		_common.openURL('http://cp.vimeworld.ru/login?auth=' + base64);
+	});
+
+	$('#a_totp_back').click(function() {
+		$('#auth-form input[name="username"]').removeAttr('disabled');
+		$('#auth-form input[name="password"]').removeAttr('disabled').val('');
+		$('#a_totp').slideUp(200, function() {
+			$(this).addClass('hidden');
+		});
+		$('#a_footer').removeClass('hidden');
+		$('#a_footer_totp').addClass('hidden');
 	});
 });
 

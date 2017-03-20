@@ -82,6 +82,7 @@ a {
 	font-weight: 600;
 	color: @link-color;
 	transition: color 0.3s;
+
 	&:hover {
 		color: @link-hover-color;
 	}
@@ -97,9 +98,11 @@ h3 {
 ul {
 	padding-left: 15px;
 }
+
 li {
 	list-style: none;
 }
+
 li:before {
 	font-family: 'Arial';
 	font-size: 11px;
@@ -109,6 +112,7 @@ li:before {
 	content: '■';
 	color: @border-color;
 }
+
 p {
 	text-indent: 15px;
 }
@@ -126,16 +130,18 @@ select {
 	transition: border 0.3s;
 	background-color: @input-color;
 	color: @text-color;
+
 	&:focus {
 		outline: none;
 		border: solid 1px @border-color;
 		box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
 	}
 
-	&[readonly] {
+	&[readonly], &[disabled] {
 		background-color: darken(@background-color, 7%);
 	}
 }
+
 select {
 	-webkit-appearance: none;
 	padding-right: 25px;
@@ -156,9 +162,11 @@ progress {
 	&[value="0"]::-webkit-progress-bar {
 		//background-color: #ececec;
 	}
+
 	&::-webkit-progress-bar {
 		background-color: lighten(@border-color, 28%);
 	}
+
 	&::-webkit-progress-value {
 		background-color: @border-color;
 		//transition: width .3s ease;
@@ -208,6 +216,7 @@ progress {
 		line-height: 32px;
 		margin-right: 6px;
 	}
+
 	.addon {
 		display: inline-block;
 		background: darken(@background-color, 7%);
@@ -218,13 +227,16 @@ progress {
 		border-right: none;
 		padding: 0 5px;
 	}
+
 	input {
 		margin: 0;
 		float: left;
+
 		&:first-of-type {
 			border-bottom-right-radius: 0;
 			border-top-right-radius: 0;
 		}
+
 		&:last-of-type {
 			border-bottom-left-radius: 0;
 			border-top-left-radius: 0;
@@ -243,14 +255,17 @@ progress {
 		margin: 0;
 		padding: 0;
 	}
+
 	& > label {
 		color: @text-color;
 		padding-left: 2rem;
 		position: relative;
 	}
+
 	& > input[type='checkbox'] {
 		display: none;
 	}
+
 	& > label:before {
 		border-color: @border-color2;
 		border-style: solid;
@@ -263,6 +278,7 @@ progress {
 		transition: all 0.2s ease-out;
 		width: 1rem;
 	}
+
 	& > input[type='checkbox']:checked + label:before {
 		border-color: @main-color;
 		border-width: 2px;
@@ -296,6 +312,7 @@ progress {
 			background: #bbb !important;
 		}
 	}
+
 	&:not([disabled]):hover::after {
 		-webkit-transform: translateY(-80%);
 	}
@@ -311,6 +328,7 @@ progress {
 		z-index: -2;
 		transition: -webkit-transform 0.3s;
 	}
+
 	&&-notransform::after {
 		transition: none !important;
 		-webkit-transform: none !important;
@@ -318,18 +336,23 @@ progress {
 
 	&&-error {
 		background: #E74C3C;
+
 		&::after {
 			background: #C0392B;
 		}
 	}
+
 	&&-primary {
 		background: #49AFFF;
+
 		&::after {
 			background: #4396D8;
 		}
 	}
+
 	&&-success {
 		background: #68C856;
+
 		&::after {
 			background: darken(#68C856, 8%);
 		}
@@ -344,6 +367,7 @@ progress {
 	cursor: pointer;
 	transition: color 0.2s ease;
 	position: relative;
+
 	&:hover {
 		color: average(@text-color, #888);
 	}
@@ -363,6 +387,7 @@ progress {
 		visibility: visible;
 		opacity: 1;
 	}
+
 	ul {
 		position: absolute;
 		z-index: 500;
@@ -418,15 +443,18 @@ progress {
 			&::before {
 				content: '';
 			}
+
 			&.divider {
 				height: 1px;
 				margin: 8px 0;
 				background: @border-color2;
 			}
+
 			a {
 				display: block;
 				padding: 6px 10px;
 				color: average(@text-color, rgb(50%, 50%, 50%));
+
 				&:hover {
 					background: darken(@background-color, 7%);
 				}
@@ -438,9 +466,11 @@ progress {
 .muted {
 	color: #aaa;
 }
+
 .green {
 	color: #00C853;
 }
+
 .red {
 	color: #F44336;
 }
@@ -503,6 +533,7 @@ progress {
 	background: url('../img/drag.png') no-repeat;
 	z-index: 1000;
 }
+
 #drag-resize when (@resizable = false) {
 	display: none;
 }
@@ -528,18 +559,22 @@ progress {
 			border: 1px solid #B71C1C;
 			background: #F44336;
 		}
+
 		&-green {
 			border: 1px solid darken(#37BC9B, 10%);
 			background-color: #37BC9B;
 		}
+
 		&-blue {
 			border: 1px solid darken(#4A89DC, 10%);
 			background-color: #4A89DC;
 		}
+
 		&-yellow {
 			border: 1px solid darken(#F6BB42, 10%);
 			background-color: #F6BB42;
 		}
+
 		&-orange {
 			border: 1px solid darken(#E9573F, 10%);
 			background-color: #E9573F;
@@ -554,60 +589,81 @@ progress {
 	width: 10px;
 	height: 10px;
 }
+
 .scroll-light {
 	&::-webkit-scrollbar-track {
 		border-left: 1px solid rgba(255, 255, 255, .1);
+
 		&:hover {
 			background-color: rgba(255, 255, 255, .1);
 		}
+
 		&:active {
 			background-color: rgba(255, 255, 255, .15);
 		}
 	}
+
 	&::-webkit-scrollbar-thumb {
 		background-color: rgba(255, 255, 255, .4);
+
 		&:hover {
 			background-color: rgba(255, 255, 255, .5);
 		}
+
 		&:active {
 			background-color: rgba(255, 255, 255, .55);
 		}
 	}
+
 	&::-webkit-scrollbar-thumb:vertical {
 		min-height: 80px;
 	}
 }
+
 .scroll-dark {
 	&::-webkit-scrollbar-track {
 		border-left: 1px solid rgba(0, 0, 0, .07);
 		background-color: rgba(0, 0, 0, .04);
+
 		&:hover {
 			background-color: rgba(0, 0, 0, .1);
 		}
+
 		&:active {
 			background-color: rgba(0, 0, 0, .12);
 		}
 	}
+
 	&::-webkit-scrollbar-thumb {
 		background-color: rgba(0, 0, 0, .13);
+
 		&:hover {
 			background-color: rgba(0, 0, 0, .13);
 		}
+
 		&:active {
 			background-color: rgba(0, 0, 0, .17);
 		}
 	}
+
 	&::-webkit-scrollbar-thumb:vertical {
 		min-height: 80px;
 	}
 }
+
 .svg-loading {
 	fill: @main-color;
+}
+
+.hidden {
+	display: none;
+	visibility: hidden;
 }
 
 .clearfix {
 	display: block;
 	zoom: 1;
+
 	&:after {
 		content: ' ';
 		display: block;
@@ -627,6 +683,7 @@ body.auth {
 	.header .menu {
 		display: none;
 	}
+
 	.header .menu.auth {
 		display: block;
 	}

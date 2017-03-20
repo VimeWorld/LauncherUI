@@ -127,7 +127,12 @@ input[type="email"][readonly],
 input[type="number"][readonly],
 input[type="password"][readonly],
 input[type="text"][readonly],
-select[readonly] {
+select[readonly],
+input[type="email"][disabled],
+input[type="number"][disabled],
+input[type="password"][disabled],
+input[type="text"][disabled],
+select[disabled] {
   background-color: #000000;
 }
 select {
@@ -535,6 +540,10 @@ progress::-webkit-progress-value {
 }
 .svg-loading {
   fill: #000000;
+}
+.hidden {
+  display: none;
+  visibility: hidden;
 }
 .clearfix {
   display: block;

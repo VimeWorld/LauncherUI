@@ -118,14 +118,23 @@
 						<div class="input">
 							<input type="text" name="username" maxlength="16" placeholder="Логин" onkeydown="if (event.keyCode == 9) $(this).next().focus()">
 							<input type="password" name="password" placeholder="Пароль" onkeydown="if (event.keyCode == 9) $(this).prev().focus()">
+							<div id="a_totp" class="hidden">
+								Введите единоразовый код авторизации:
+								<input type="number" style="-webkit-appearance: none" name="totp" placeholder="Код авторизации">
+							</div>
 						</div>
 						<div class="checkbox">
 							<input id="s_savepass" type="checkbox">
 							<label for="s_savepass">Запомнить пароль?</label>
 						</div>
 						<button type="submit" class="btn btn-primary">Войти</button>
-						<a href="http://cp.vimeworld.ru/lostpass">Забыли пароль?</a>
-						<a href="@tab:register" style="float:right">Регистрация</a>
+						<div id="a_footer">
+							<a href="http://cp.vimeworld.ru/lostpass">Забыли пароль?</a>
+							<a href="@tab:register" style="float:right">Регистрация</a>
+						</div>
+						<div id="a_footer_totp" class="hidden" style="text-align: center;">
+							<a id="a_totp_back">Назад</a>
+						</div>
 					</form>
 				</div>
 			</div>
@@ -142,7 +151,7 @@
 						</div>
 						<div class="checkbox">
 							<input id="r_acceptrules" type="checkbox">
-							<label for="r_acceptrules">Я согласен(-а) с <a href="http://forum.vimeworld.ru/topic/15-" target="_blank">правилами</a> сервера</label>
+							<label for="r_acceptrules">Я согласен(-а) с <a href="http://vime.one/rules" target="_blank">правилами</a> сервера</label>
 						</div>
 						<button type="submit" class="btn btn-primary">Зарегистрироваться</button>
 						<a href="@tab:auth">Уже зарегистрированы? Войдите</a>
