@@ -1,4 +1,5 @@
 (function() {
+	var vkProfileLinkRegexp = /\[(.*)\|(.*)\]/;
 	var perPage = 10;
 	var offset = 0;
 	var loading = false;
@@ -89,6 +90,9 @@
 		var lines = post.text.split('\n');
 		var listStart = -1;
 		for (i in lines) {
+			lines[i] = lines[i].replace(vkProfileLinkRegexp, function(str, id, name, offset, s) {
+				return '<a href="https://vk.com/' + id + '">' + name + '</a>';
+			});
 			var c = lines[i].substr(0, 1);
 			if (c == '-' || c == '—') {
 				lines[i] = '<li>' + lines[i].substr(1) + '</li>';
@@ -110,7 +114,6 @@
 		}
 		post.text = lines.join('');
 
-		var hasVideo = false;
 		if (post.attachments) {
 			post.attachments.forEach(function(attach) {
 				if (attach.type == 'photo') {
@@ -128,10 +131,10 @@
 					else
 						video.duration = '';
 					post.text += tpl('tpl_news_post_video', video);
-					hasVideo = true;
 				}
 			});
 		}
+
 		var $post = $(tpl('tpl_news_post', post));
 		$('#news').append($post);
 	}

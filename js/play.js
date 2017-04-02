@@ -3,6 +3,8 @@
 	var nameToId = {};
 	var mg = {};
 	var updateInfoTimer;
+	var serversLoadedOnUsername = '';
+	var onlineUpdatersScheduled = false;
 
 	var getOnlineString = function(server) {
 		if (server.online == undefined)
@@ -97,13 +99,18 @@
 			_game.deleteClient();
 		});
 
-		$('#play').one('tab:open', function() {
+		$('#play').on('tab:open', function() {
+			if (_config.getUsername() == serversLoadedOnUsername)
+				return;
+			serversLoadedOnUsername = _config.getUsername();
 			_gui.loadServers({
 				callback: function(data) {
 					data = $.parseJSON(data);
 					_common.print("Loaded " + data.length + " servers");
 					var out = '';
 					var id = 0;
+					servers = {};
+					nameToId = {};
 					data.forEach(function(server) {
 						servers[id] = server;
 						nameToId[server.name] = id;
@@ -139,8 +146,11 @@
 						id = nameToId[lastServer];
 					$('#srv_' + id).trigger('click');
 
-					loadOnline();
-					loadMiniGamesOnline();
+					if (!onlineUpdatersScheduled) {
+						onlineUpdatersScheduled = true;
+						loadOnline();
+						loadMiniGamesOnline();
+					}
 				}
 			});
 		});
