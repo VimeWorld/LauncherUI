@@ -15,12 +15,18 @@
 
 		loading = true;
 		ajax({
+			/* Original request to vk.com
 			url: 'http://api.vk.com/method/wall.get',
 			data: {
 				owner_id: group_id,
 				count: perPage,
 				filter: 'owner',
 				v: '5.45',
+				offset: offset
+			},*/
+			url: 'http://launcher.vimeworld.ru/data/news.php',
+			data: {
+				count: perPage,
 				offset: offset
 			},
 			callback: function(data) {
