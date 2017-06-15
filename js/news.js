@@ -34,8 +34,12 @@
 				offset += perPage;
 
 				var parsed = $.parseJSON(data);
-				var items = parsed.response.items;
+				if (parsed.response == undefined) {
+					$('#news').html(tpl('tpl_news_error'));
+					return;
+				}
 
+				var items = parsed.response.items;
 				if (items.length == 0)
 					return;
 

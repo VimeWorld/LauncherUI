@@ -45,10 +45,6 @@ $(document).on('vimeworld:load', function(event) {
 	$('#s_memory').val(_config.getMemory());
 	$('#s_width').val(_config.getWidth());
 	$('#s_height').val(_config.getHeight());
-	$('#s_osuuid').val(_config.getOsuuid())
-		.click(function() {
-			$(this).select();
-		});
 
 	//Загрузка темы
 	var theme = _config.getTheme();

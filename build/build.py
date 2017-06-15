@@ -35,7 +35,7 @@ jslist = []
 with open('index.html0', 'w', 'utf-8') as outfile:
 	with open('index.html', 'r', 'utf-8') as infile:
 		for line in infile.read().split('\r\n'):
-			if line.startswith('\t<script src="'):
+			if line.startswith('\t<script src="js/'):
 				found = re.match('^.*src=\"(.*)\".*$', line).group(1)
 				jslist.append(found)
 				print('    '+found)

@@ -235,7 +235,6 @@ $(document).ready(function() {
 				var split = href.split(':');
 				var action = split[0];
 				var value = split[1];
-				_common.print(action);
 				switch (action) {
 					case '@click':
 						$(value).trigger('click');

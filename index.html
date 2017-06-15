@@ -57,6 +57,16 @@
 			</div>
 		</div>
 	</script>
+	<script type="text/html" id="tpl_news_error">
+		<div id="post_error" class="card">
+			<h1>Ошибка</h1>
+			<div class="text" data-id="error">
+				<p>При загрузке новостей произошла ошибка.</p>
+				<p class="img"><img src="img/sadness.jpg"></p>
+				<p>Но вы все еще можете прочитать новости в браузере: <a href="https://vk.com/vimeworld">https://vk.com/vimeworld</a></p>
+			</div>
+		</div>
+	</script>
 	<script type="text/html" id="tpl_news_post_video">
 		<div class="video">
 			<a href="<%=url%>">
@@ -235,12 +245,6 @@
 					<div style="margin-top: 20px;">
 						<a id="s_open_launcher_dir" href="#">Открыть папку .vimeworld</a>
 					</div>
-					<!--
-					<div style="margin-top: 10px; display: block;" class="tooltip" title="Используется для привязки аккаунта по железу">
-						<label for="s_osuuid">Уникальный идентификатор:</label>
-						<input id="s_osuuid" style="width: 100%" type="text" data-enter-blur readonly>
-					</div>
-					-->
 				</div>
 			</div>
 
