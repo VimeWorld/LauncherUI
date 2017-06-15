@@ -130,31 +130,11 @@
 						<button type="submit" class="btn btn-primary">Войти</button>
 						<div id="a_footer">
 							<a href="http://cp.vimeworld.ru/lostpass">Забыли пароль?</a>
-							<a href="@tab:register" style="float:right">Регистрация</a>
+							<a href="http://vime.one/register" style="float:right">Регистрация</a>
 						</div>
 						<div id="a_footer_totp" class="hidden" style="text-align: center;">
 							<a id="a_totp_back">Назад</a>
 						</div>
-					</form>
-				</div>
-			</div>
-
-			<div class="tab hidden" id="register">
-				<div class="card">
-					<h1>Регистрация</h1>
-					<form id="register-form" class="card-form" action="#">
-						<div class="input">
-							<input type="text" name="username" maxlength="16" placeholder="Логин" onkeydown="if (event.keyCode == 9) $(this).next().focus()">
-							<input type="password" name="password" maxlength="20" placeholder="Пароль" onkeydown="if (event.keyCode == 9) $(this).next().focus()">
-							<input type="password" name="password2" placeholder="Повтор пароля" onkeydown="if (event.keyCode == 9) $(this).next().focus()">
-							<input type="email" name="email" placeholder="Email" onkeydown="if (event.keyCode == 9) $(this).parent().find(':first-child').focus()">
-						</div>
-						<div class="checkbox">
-							<input id="r_acceptrules" type="checkbox">
-							<label for="r_acceptrules">Я согласен(-а) с <a href="http://vime.one/rules" target="_blank">правилами</a> сервера</label>
-						</div>
-						<button type="submit" class="btn btn-primary">Зарегистрироваться</button>
-						<a href="@tab:auth">Уже зарегистрированы? Войдите</a>
 					</form>
 				</div>
 			</div>
