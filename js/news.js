@@ -135,11 +135,8 @@
 				} else if (attach.type == 'video') {
 					var video = attach.video;
 					video.img = video.photo_640 || video.photo_320 || video.photo_130;
-					video.url = 'https://vk.com/wall' + group_id + '_' + post.id + '?z=video' + video.owner_id + '_' + video.id;
-					if (video.duration > 0)
-						video.duration = formatTime(parseTime(video.duration));
-					else
-						video.duration = '';
+					video.url = video.external_url || 'https://vk.com/wall' + group_id + '_' + post.id + '?z=video' + video.owner_id + '_' + video.id;
+					video.duration = video.duration > 0 ? formatTime(parseTime(video.duration)) : '';
 					post.text += tpl('tpl_news_post_video', video);
 				}
 			});
