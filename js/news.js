@@ -24,7 +24,7 @@
 				v: '5.45',
 				offset: offset
 			},*/
-			url: 'http://launcher.vimeworld.ru/data/news.php',
+			url: 'https://launcher.vimeworld.ru/data/news.php',
 			data: {
 				count: perPage,
 				offset: offset

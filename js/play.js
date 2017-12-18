@@ -22,7 +22,7 @@
 
 	var loadOnline = function() {
 		ajax({
-			url: 'http://mc.vimeworld.ru/mon/min.txt',
+			url: 'https://mc.vimeworld.ru/mon/min.txt',
 			callback: function(data) {
 				data = data.split(';');
 				var total = 0;
@@ -48,7 +48,7 @@
 
 	var loadMiniGamesOnline = function() {
 		ajax({
-			url: 'http://mc.vimeworld.ru/mon/mg.txt',
+			url: 'https://mc.vimeworld.ru/mon/mg.txt',
 			callback: function(data) {
 				var $mglist = $('.minigames-list');
 				data = data.split(';');

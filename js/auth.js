@@ -83,7 +83,7 @@ $(document).ready(function() {
 	});
 
 	$('#tocp').click(function() {
-		_common.openURL('http://cp.vimeworld.ru');
+		_common.openURL('https://cp.vimeworld.ru');
 	});
 
 	$('#a_totp_back').click(function() {
