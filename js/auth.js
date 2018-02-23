@@ -28,7 +28,7 @@ $(document).ready(function() {
 		if (!$('#a_totp').hasClass('hidden')) {
 			var $totp = $(this).find('input[name="totp"]');
 			totp = $totp.val();
-			if (totp == null || (totp.length != 6 && totp.length != 8) || !/^\+?(0|[1-9]\d*)$/.test(totp)) {
+			if (totp == null || (totp.length != 6 && totp.length != 8) || !/^\d+$/.test(totp)) {
 				$totp.tooltipster($.extend(tooltipster_error, {
 					content: 'Вы должны ввести 6-ти или 8-ми значное число'
 				})).tooltipster('show');
