@@ -2,7 +2,18 @@
  * VimeWorld.ru Launcher script
  */
 
-vw = {};
+vw = {
+	showInvalidLaunch: function() {
+		overlay.show(function() {
+			$('#invalid-launch-popup').removeClass('active');
+		}, true);
+		$('#invalid-launch-popup').addClass('active');
+	},
+	showNeedUpdate: function() {
+		overlay.show(function() {}, false);
+		$('#update-popup').addClass('active');
+	}
+};
 
 var tooltipster_error = {
 	timer: 1500,
@@ -72,7 +83,7 @@ var overlay = {
 	click: function() {
 		if (this.callback == undefined || !this.hideOnClick)
 			return;
-		hide();
+		this.hide();
 	},
 	closeNoCallback: function() {
 		this._close();
@@ -145,7 +156,8 @@ $(document).ready(function() {
 	});
 	$('.tooltip').tooltipster();
 
-	$('#overlay').click(function() {
+	$('#overlay').click(function(e) {
+    if(e.target != this) return;
 		overlay.click();
 	});
 

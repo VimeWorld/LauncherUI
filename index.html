@@ -111,6 +111,7 @@
 					<i class="fa fa-chevron-down"></i>
 				</div>
 				<ul class="bottom">
+					<li><a id="toprofile">Публичный профиль</a></li>
 					<li><a id="tocp">Личный кабинет</a></li>
 					<li class="divider"></li>
 					<li><a id="logout">Сменить аккаунт</a></li>
@@ -258,6 +259,14 @@
 				<p>Если после перезапуска это сообщение не исчезло, значит нужно скачать новый лаунчер с сайта: <a href="http://vime.one/download">скачать</a>.</p>
 				<div class="popup-footer">
 					<button class="btn btn-primary" onclick="_gui.exit()">Закрыть</button>
+				</div>
+			</div>
+			<div id="invalid-launch-popup" class="popup">
+				<h3>Некорректный запуск</h3>
+				<p>Скорее всего вы запустили <b>VimeWorld.exe</b> из папки <b>.vimeworld</b>, а это было ошибкой.</p>
+				<p>Запускать лаунчер нужно только через тот файл, который вы загрузили с сайта: <a href="http://vime.one/download">скачать</a>.</p>
+				<div class="popup-footer">
+					<button class="btn btn-primary" onclick="overlay.hide()">Закрыть</button>
 				</div>
 			</div>
 		</div>

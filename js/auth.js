@@ -1,9 +1,4 @@
 $(document).ready(function() {
-	vw.showNeedUpdate = function() {
-		overlay.show(function() {}, false);
-		$('#update-popup').addClass('active');
-	};
-
 	$('#auth-form').submit(function() {
 		var $username = $(this).find('input[name="username"]');
 		var $password = $(this).find('input[name="password"]');
@@ -84,6 +79,9 @@ $(document).ready(function() {
 
 	$('#tocp').click(function() {
 		_common.openURL('https://cp.vimeworld.ru');
+	});
+	$('#toprofile').click(function() {
+		_common.openURL('https://vimeworld.ru/player/' + _user.getUsername());
 	});
 
 	$('#a_totp_back').click(function() {
