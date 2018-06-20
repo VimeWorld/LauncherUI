@@ -157,7 +157,7 @@ $(document).ready(function() {
 	$('.tooltip').tooltipster();
 
 	$('#overlay').click(function(e) {
-    if(e.target != this) return;
+		if (e.target != this) return;
 		overlay.click();
 	});
 

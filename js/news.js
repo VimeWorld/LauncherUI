@@ -98,7 +98,7 @@
 			html: false
 		});
 		var lines = post.text.split('\n');
-		var listStart = -1;
+		var renderList = false;
 		for (i in lines) {
 			lines[i] = lines[i].replace(vkProfileLinkRegexp, function(str, id, name, offset, s) {
 				return '<a href="https://vk.com/' + id + '">' + name + '</a>';
@@ -106,20 +106,20 @@
 			var c = lines[i].substr(0, 1);
 			if (c == '-' || c == '—') {
 				lines[i] = '<li>' + lines[i].substr(1) + '</li>';
-				if (listStart == -1) {
-					listStart = i;
+				if (!renderList) {
+					renderList = true;
 					lines[i] = '<p><ul>' + lines[i];
 				}
 			} else {
-				if (listStart != -1) {
-					listStart = -1;
+				if (renderList) {
+					renderList = false;
 					lines[i] = '</ul></p><p>' + lines[i] + '</p>';
 				} else {
 					lines[i] = '<p>' + lines[i] + '</p>';
 				}
 			}
 		}
-		if (listStart != -1) {
+		if (renderList) {
 			lines[lines.length - 1] += '</ul></p>';
 		}
 		post.text = lines.join('');
