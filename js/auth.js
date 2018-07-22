@@ -58,6 +58,13 @@ $(document).ready(function() {
 					$('#a_footer_totp').removeClass('hidden');
 					return;
 				}
+				if (data == 'sucess-outdated-password') {
+					overlay.closeNow();
+					overlay.show(function() {
+						$('#outdated-password-popup').removeClass('active');
+					}, true);
+					$('#outdated-password-popup').addClass('active');
+				}
 				btn.addClass('btn-notransform');
 				setTimeout(function() {
 					btn.removeClass('btn-notransform');

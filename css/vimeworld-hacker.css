@@ -448,6 +448,9 @@ progress::-webkit-progress-value {
   float: right;
   margin-left: 7px;
 }
+#overlay .popup.danger {
+  border: 1px solid #F44336;
+}
 #drag-resize {
   display: none;
 }

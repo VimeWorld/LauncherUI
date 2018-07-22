@@ -85,6 +85,15 @@ var overlay = {
 			return;
 		this.hide();
 	},
+	closeNow: function() {
+		if (this.callback != undefined) {
+			this.callback();
+			this.callback = undefined;
+		}
+		$('#overlay').css({
+			'opacity': 0
+		}).removeClass('active');
+	},
 	closeNoCallback: function() {
 		this._close();
 		this.callback = undefined;
