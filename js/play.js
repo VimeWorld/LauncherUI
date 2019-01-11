@@ -64,13 +64,7 @@
 
 	var updateInfo = function() {
 		$('#loading-bar').attr('value', _game.progress * 10);
-		var text = _game.status;
-		if (_game.progress >= 4 && _game.progress < 10) {
-			text += ": " + _game.currFile;
-		} else if (_game.progress >= 10 && _game.progress < 97) {
-			text = _game.loaded + ' из ' + _game.fullSize + ' [' + Math.round(_game.progress * 10) / 10 + '%]';
-		}
-		$('#loading-bar-text').text(text);
+		$('#loading-bar-text').text(_game.status);
 		if (!_game.running) {
 			clearInterval(updateInfoTimer);
 			$('#loading-bar-container').removeClass('active');
