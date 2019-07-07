@@ -52,21 +52,25 @@
 			callback: function(data) {
 				if (typeof data === 'string')
 					data = JSON.parse(data);
-				$('.minigames-list').find('.online').each(function() {
-					var mg = $(this).attr('data-mg');
-					_common.print(mg);
-					if (mg) {
-						var online = 0;
-						mg.split(',').forEach(function(item) {
-							if (item in data)
-								online += data[item];
-						});
-						$(this).text(online);
-					}
-				});
+				mg = data;
+				setMiniGamesOnlineValues();
 			}
 		});
 		setTimeout(loadMiniGamesOnline, 60000);
+	}
+
+	var setMiniGamesOnlineValues = function() {
+		$('#server-description .minigames-list').find('.online').each(function() {
+			var game = $(this).attr('data-mg');
+			if (game) {
+				var online = 0;
+				game.split(',').forEach(function(item) {
+					if (item in mg)
+						online += mg[item];
+				});
+				$(this).text(online);
+			}
+		});
 	}
 
 	var updateInfo = function() {
@@ -129,15 +133,11 @@
 							$('#server-name').text(server.name);
 							$('#server-description').html(server.desc).scrollTop(0);
 							$('#server-online').html(getOnlineString(server));
-							if (server.name == 'MiniGames') {
-								var $mglist = $('.minigames-list');
-								for (game in mg)
-									$mglist.find('div[data-mg="' + game + '"]').text(mg[game]);
-								$('#server-description').find('.tooltip').tooltipster({
-									'delay': 0,
-									'speed': 100
-								});
-							}
+							$('#server-description').find('.tooltip').tooltipster({
+								'delay': 0,
+								'speed': 100
+							});
+							setMiniGamesOnlineValues();
 						});
 
 					var lastServer = _config.getLastServer();
