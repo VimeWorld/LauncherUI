@@ -131,7 +131,22 @@
 					var url = photo.photo_807 || photo.photo_604 || photo.photo_130 || photo.photo_75;
 					post.text += '<p class="img"><img src="' + url + '"></p>';
 				} else if (attach.type == 'doc' && attach.doc.ext == 'gif') {
-					post.text += '<p class="gif"><img src="' + attach.doc.url + '"></p>';
+					var preview = attach.doc.preview;
+					var photo = null;
+					for (i in preview.photo.sizes) {
+						var s = preview.photo.sizes[i];
+						if (photo == null || (s.width < 800 && s.width > photo.width))
+							photo = s;
+					}
+					if (photo != null) {
+						if (preview.video != undefined && preview.video.src.indexOf('mp4=1') !== -1) {
+							post.text += '<p><img class="gifplayer" src="' + photo.src + '" data-mode="video" data-mp4="' + preview.video.src + '"></p>';
+						} else {
+							post.text += '<p><img class="gifplayer" src="' + photo.src + '" data-gif="' + attach.doc.url + '"></p>';
+						}
+					} else {
+						post.text += '<p><img class="gifplayer" src="' + attach.doc.url + '"></p>';
+					}
 				} else if (attach.type == 'video') {
 					var video = attach.video;
 					video.img = video.photo_640 || video.photo_320 || video.photo_130;
@@ -143,6 +158,9 @@
 		}
 
 		var $post = $(tpl('tpl_news_post', post));
+		$post.find('.gifplayer').gifplayer({
+			label: '<img style="margin: 13px 0 0 4px" src="img/video_play_compact.png">'
+		});
 		$('#news').append($post);
 	}
 
@@ -152,7 +170,6 @@
 		this.minutes = time % 60;
 		time = Math.floor(time / 60);
 		this.hours = time % 60;
-		//_common.print(this.hours+':'+this.minutes+":"+this.seconds);
 		return this;
 	}
 

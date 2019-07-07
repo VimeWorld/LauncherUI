@@ -491,6 +491,29 @@ progress::-webkit-progress-value {
   border: 1px solid #dc3519;
   background-color: #E9573F;
 }
+ins.play-gif {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: left;
+  background: rgba(0, 0, 0, 0.8);
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 50%;
+  opacity: .8;
+  border: 4px solid #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+ins.play-gif:hover {
+  opacity: .5;
+}
+.gifplayer-wrapper {
+  position: relative;
+  display: inline-block;
+}
 /**********************
 	Вспомогательные классы
 **********************/
