@@ -48,14 +48,21 @@
 
 	var loadMiniGamesOnline = function() {
 		ajax({
-			url: 'https://mc.vimeworld.ru/mon/mg.txt',
+			url: 'https://mc.vimeworld.ru/mon/mg.json',
 			callback: function(data) {
-				var $mglist = $('.minigames-list');
-				data = data.split(';');
-				data.forEach(function(item) {
-					var split = item.split(':');
-					mg[split[0]] = parseInt(split[1]);
-					$mglist.find('div[data-mg="' + split[0] + '"]').text(split[1]);
+				if (typeof data === 'string')
+					data = JSON.parse(data);
+				$('.minigames-list').find('.online').each(function() {
+					var mg = $(this).attr('data-mg');
+					_common.print(mg);
+					if (mg) {
+						var online = 0;
+						mg.split(',').forEach(function(item) {
+							if (item in data)
+								online += data[item];
+						});
+						$(this).text(online);
+					}
 				});
 			}
 		});
