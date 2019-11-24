@@ -82,6 +82,16 @@
 			</a>
 		</div>
 	</script>
+	<script type="text/html" id="tpl_news_post_article">
+    <div class="article">
+      <a href="<%=url%>">
+        <div class="article_wrap" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%=img%>)">
+          <div class="article_title"><%=title%></div>
+          <button class="btn btn-primary">Читать <i class="fa fa-external-link"></i></button>
+        </div>
+      </a>
+    </div>
+	</script>
 
 	<div class="wrap">
 		<!-- Шапка -->
@@ -222,7 +232,7 @@
 						<label for="s_memory">Оперативная память:</label>
 						<div class="clearfix tooltip" title="Требуется перезапуск">
 							<input id="s_memory" type="text" placeholder="Количество" data-enter-blur>
-							<div class="addon">Мб.</div>
+							<div class="addon">МБ</div>
 						</div>
 					</div>
 					<div class="input-addon-center">

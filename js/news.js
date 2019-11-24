@@ -125,19 +125,28 @@
 		post.text = lines.join('');
 
 		if (post.attachments) {
+			var getBestPhoto = function(photos) {
+				var photo = null;
+				for (i in photos) {
+					var s = photos[i];
+					if (photo == null || (s.width < 800 && s.width > photo.width))
+						photo = s;
+				}
+				return photo;
+			};
 			post.attachments.forEach(function(attach) {
 				if (attach.type == 'photo') {
 					var photo = attach.photo;
 					var url = photo.photo_807 || photo.photo_604 || photo.photo_130 || photo.photo_75;
 					post.text += '<p class="img"><img src="' + url + '"></p>';
+				} else if (attach.type == 'link' && attach.link.url.indexOf('vk.com/@') !== -1) {
+					var article = attach.link;
+					article.img = article.photo.photo_807 || article.photo.photo_604 || article.photo.photo_130 || article.photo.photo_75;
+					article.url = article.url.replace('m.vk.com', 'vk.com').replace('@-29034706', '@vimeworld');
+					post.text += tpl('tpl_news_post_article', article);
 				} else if (attach.type == 'doc' && attach.doc.ext == 'gif') {
 					var preview = attach.doc.preview;
-					var photo = null;
-					for (i in preview.photo.sizes) {
-						var s = preview.photo.sizes[i];
-						if (photo == null || (s.width < 800 && s.width > photo.width))
-							photo = s;
-					}
+					var photo = getBestPhoto(preview.photo.sizes);
 					if (photo != null) {
 						if (preview.video != undefined && preview.video.src.indexOf('mp4=1') !== -1) {
 							post.text += '<p><img class="gifplayer" src="' + photo.src + '" data-mode="video" data-mp4="' + preview.video.src + '"></p>';
