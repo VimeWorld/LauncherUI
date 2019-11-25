@@ -78,6 +78,7 @@
 		$('#loading-bar-text').text(_game.status);
 		if (!_game.running) {
 			clearInterval(updateInfoTimer);
+			updateInfoTimer = undefined;
 			$('#loading-bar-container').removeClass('active');
 			$('#play-btn').removeAttr('disabled');
 			$('#loading-bar').attr('value', '0');
@@ -146,6 +147,8 @@
 					else
 						id = nameToId[lastServer];
 					$('#srv_' + id).trigger('click');
+					if (!updateInfoTimer)
+						$('#play-btn').removeAttr('disabled');
 
 					if (!onlineUpdatersScheduled) {
 						onlineUpdatersScheduled = true;
