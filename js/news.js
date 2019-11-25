@@ -170,6 +170,10 @@
 		$post.find('.gifplayer').gifplayer({
 			label: '<img style="margin: 13px 0 0 4px" src="img/video_play_compact.png">'
 		});
+		twemoji.parse($post[0], {
+			folder: 'svg',
+			ext: '.svg'
+		});
 		$('#news').append($post);
 	}
 

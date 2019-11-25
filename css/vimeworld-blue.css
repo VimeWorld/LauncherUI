@@ -42,7 +42,7 @@
 **********************/
 body,
 html {
-  font-family: 'OSoverride';
+  font-family: 'OSoverride', 'Helvetica Neue', sans-serif;
   font-weight: 400;
   height: 100%;
   overflow: hidden;
@@ -51,7 +51,7 @@ html {
   line-height: 24px;
 }
 input {
-  font-family: 'OSoverride';
+  font-family: 'OSoverride', 'Helvetica Neue', sans-serif;
   box-sizing: border-box;
 }
 body,
@@ -582,6 +582,12 @@ ins.play-gif:hover {
   height: 0;
   clear: both;
   visibility: hidden;
+}
+img.emoji {
+  height: 1.1em;
+  width: 1.1em;
+  margin: 0 .05em 0 .1em;
+  vertical-align: -0.1em;
 }
 /**********************
 	Различные экраны

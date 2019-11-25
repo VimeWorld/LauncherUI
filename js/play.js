@@ -132,7 +132,12 @@
 							_game.setSelected(id);
 							$(this).addClass('active').siblings().removeClass('active');
 							$('#server-name').text(server.name);
-							$('#server-description').html(server.desc).scrollTop(0);
+							$('#server-description')
+								.html(twemoji.parse(server.desc, {
+									folder: 'svg',
+									ext: '.svg'
+								}))
+								.scrollTop(0);
 							$('#server-online').html(getOnlineString(server));
 							$('#server-description').find('.tooltip').tooltipster({
 								'delay': 0,
