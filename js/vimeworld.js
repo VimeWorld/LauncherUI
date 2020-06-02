@@ -12,7 +12,8 @@ vw = {
 	showNeedUpdate: function() {
 		overlay.show(function() {}, false);
 		$('#update-popup').addClass('active');
-	}
+	},
+	gameLoading: false
 };
 
 var tooltipster_error = {

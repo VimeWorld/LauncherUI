@@ -79,6 +79,7 @@
 		if (!_game.running) {
 			clearInterval(updateInfoTimer);
 			updateInfoTimer = undefined;
+			vw.gameLoading = false;
 			$('#loading-bar-container').removeClass('active');
 			$('#play-btn').removeAttr('disabled');
 			$('#loading-bar').attr('value', '0');
@@ -93,6 +94,7 @@
 			$('#loading-object').text('Запуск ' + servers[_game.getSelected()].name);
 			$('#loading-bar-container').addClass('active');
 			updateInfoTimer = setInterval(updateInfo, 100);
+			vw.gameLoading = true;
 		});
 
 		$('#p_screenshots').click(function() {
@@ -152,8 +154,7 @@
 					else
 						id = nameToId[lastServer];
 					$('#srv_' + id).trigger('click');
-					if (!updateInfoTimer)
-						$('#play-btn').removeAttr('disabled');
+					$('#play-btn').removeAttr('disabled');
 
 					if (!onlineUpdatersScheduled) {
 						onlineUpdatersScheduled = true;

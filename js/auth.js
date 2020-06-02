@@ -79,6 +79,10 @@ $(document).ready(function() {
 	});
 
 	$('#logout').click(function() {
+		if (vw.gameLoading) {
+			ohSnap('Нельзя менять аккаунт во время запуска игры', "red");
+			return;
+		}
 		_user.logout();
 		$('body').attr('class', 'auth');
 		$('a[href="#auth"]').trigger('click');
