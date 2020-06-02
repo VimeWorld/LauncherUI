@@ -63,11 +63,11 @@
 								}
 							}
 							if (pinned != null && items[id].id < pinned.id) {
-								addPost(pinned);
+								addPost(pinned, parsed.response);
 								newsAdded++;
 								pinned = null;
 							}
-							addPost(items[id]);
+							addPost(items[id], parsed.response);
 							newsAdded++;
 						}
 					}
@@ -92,7 +92,24 @@
 		});
 	}
 
-	function addPost(post) {
+	function addPost(post, response) {
+		preparePostContent(post, response);
+
+		var $post = $(tpl('tpl_news_post', post));
+		$post.find('.gifplayer').gifplayer({
+			label: '<img style="margin: 13px 0 0 4px" src="img/video_play_compact.png">'
+		});
+		twemoji.parse($post[0], {
+			folder: 'svg',
+			ext: '.svg'
+		});
+		$('#news').append($post);
+	}
+
+	function preparePostContent(post, response) {
+		post_owner_profile = findProfile(post.owner_id, response);
+		post.avatar = post_owner_profile.photo_50;
+
 		post.text = anchorme.js(post.text, {
 			emails: false,
 			html: false
@@ -123,6 +140,32 @@
 			lines[lines.length - 1] += '</ul></p>';
 		}
 		post.text = lines.join('');
+
+		// Обработка репостов
+		if (post.copy_history && post.copy_history.length == 1) {
+			var reposted = post.copy_history[0];
+
+			post.text += '<div class="repost">';
+
+			// Поиск имени владельца поста
+			var profile_list = response.profiles;
+			var owner_id = reposted.owner_id;
+			if (reposted.owner_id < 0) { // если был репост группы
+				profile_list = response.groups;
+				owner_id = -owner_id;
+			}
+			var profile = findProfile(reposted.owner_id, response);
+			if (profile != null) {
+				var avatar = '<img class="avatar" src="' + profile.photo_50 + '">';
+				var time = '<span class="time-from-now" data-time="' + reposted.date + '">' + moment(reposted.date, "X").fromNow() + '</span>';
+				post.text += '<h2 class="title"><a href="' + profile.url + '">' + avatar + ' ' + profile.name + '</a>' + time + '</h2>';
+			}
+
+			preparePostContent(reposted, response);
+			post.text += reposted.text;
+
+			post.text += '</div>';
+		}
 
 		if (post.attachments) {
 			var getBestPhoto = function(photos) {
@@ -158,23 +201,46 @@
 					}
 				} else if (attach.type == 'video') {
 					var video = attach.video;
-					video.img = video.photo_640 || video.photo_320 || video.photo_130;
+					video.img = video.photo_800 || video.photo_640 || video.photo_320 || video.photo_130;
 					video.url = video.external_url || 'https://vk.com/wall' + group_id + '_' + post.id + '?z=video' + video.owner_id + '_' + video.id;
 					video.duration = video.duration > 0 ? formatTime(parseTime(video.duration)) : '';
 					post.text += tpl('tpl_news_post_video', video);
 				}
 			});
 		}
+	}
 
-		var $post = $(tpl('tpl_news_post', post));
-		$post.find('.gifplayer').gifplayer({
-			label: '<img style="margin: 13px 0 0 4px" src="img/video_play_compact.png">'
-		});
-		twemoji.parse($post[0], {
-			folder: 'svg',
-			ext: '.svg'
-		});
-		$('#news').append($post);
+	function findProfile(id, response) {
+		_common.print(id + " " + JSON.stringify(response))
+		var profile_list = response.profiles;
+		var group = id < 0;
+		if (group) {
+			profile_list = response.groups;
+			id = -id;
+		}
+		var profile = null;
+		for (var i = 0; i < profile_list.length; i++) {
+			if (profile_list[i].id == id) {
+				profile = profile_list[i];
+				break;
+			}
+		}
+		if (profile != null) {
+			if (group) {
+				if (profile.screen_name) {
+					profile.url = profile.screen_name;
+				} else if (profile.type == 'group') {
+					profile.url = 'club' + id;
+				} else if (profile.type == 'page') {
+					profile.url = 'public' + id;
+				}
+			} else {
+				profile.name = profile.first_name + ' ' + profile.last_name;
+				profile.url = 'id' + profile.id;
+			}
+			profile.url = 'https://vk.com/' + profile.url;
+		}
+		return profile;
 	}
 
 	function parseTime(time) {

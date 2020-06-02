@@ -1011,11 +1011,21 @@ body.main .header .menu.auth {
 #news .card {
   width: 700px;
 }
-#news .card h1 .time-from-now {
+#news .card .time-from-now {
   float: right;
   color: #777;
   font-size: 16px;
   padding: 2px;
+}
+#news .card .title {
+  padding-bottom: 6px;
+}
+#news .card .title .avatar {
+  width: 35px;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+  border-radius: 50%;
 }
 #news .card .text {
   text-indent: 15px;
@@ -1041,6 +1051,17 @@ body.main .header .menu.auth {
 #news .card .text img {
   max-width: 620px;
   margin: 0 auto;
+}
+#news .card .text .repost {
+  border-left: 2px solid #62b9ff;
+  padding-left: 15px;
+}
+#news .card .text .repost h2 {
+  font-size: 18px;
+  text-indent: 0;
+  margin-bottom: 6px;
+  padding-bottom: 0;
+  font-weight: lighter;
 }
 #news .card .text .video {
   text-indent: 0;

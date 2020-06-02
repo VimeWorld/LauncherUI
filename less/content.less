@@ -2,6 +2,7 @@
 /*
 * Контент
 */
+
 #content {
 	height: calc(~'100% - @{header-height}');
 	width: 100%;
@@ -59,6 +60,7 @@
 /*
 * Страница с серверами и кнопкой входа
 */
+
 #play {
 	height: 100%;
 	@left-width: 220px;
@@ -312,6 +314,7 @@
 /*
 * Страница новостей
 */
+
 #news {
 	overflow-y: scroll;
 	height: 100%;
@@ -320,11 +323,23 @@
 	.card {
 		width: 700px;
 
-		h1 .time-from-now {
+		.time-from-now {
 			float: right;
 			color: #777;
 			font-size: 16px;
 			padding: 2px;
+		}
+
+		.title {
+			padding-bottom: 6px;
+
+			.avatar {
+				width: 35px;
+				margin: 0;
+				padding: 0;
+				vertical-align: middle;
+        border-radius: 50%;
+			}
 		}
 
 		.text {
@@ -355,6 +370,19 @@
 			img {
 				max-width: 620px;
 				margin: 0 auto;
+			}
+
+			.repost {
+				border-left: 2px solid @border-color;
+				padding-left: 15px;
+
+				h2 {
+					font-size: 18px;
+					text-indent: 0;
+					margin-bottom: 6px;
+					padding-bottom: 0;
+					font-weight: lighter;
+				}
 			}
 
 			.video {

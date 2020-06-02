@@ -41,7 +41,11 @@
 	</script>
 	<script type="text/html" id="tpl_news_post">
 		<div id="post_<%=id%>" class="card">
-			<h1><a href="https://vk.com/wall<%=owner_id%>_<%=id%>">VimeWorld.ru</a><span class="time-from-now" data-time="<%=date%>"><%=moment(date, "X").fromNow()%></span></h1>
+			<h1 class="title">
+        <img class="avatar" src="<%=avatar%>">
+        <a href="https://vk.com/wall<%=owner_id%>_<%=id%>">VimeWorld.ru</a>
+        <span class="time-from-now" data-time="<%=date%>"><%=moment(date, "X").fromNow()%></span>
+      </h1>
 			<div class="text" data-id="<%=id%>">
 				<%=text%>
 			</div>
