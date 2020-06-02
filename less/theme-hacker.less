@@ -12,77 +12,104 @@
 @import "vimeworld";
 
 body {
-	font-family: 'Lucida Console', Monaco, monospace;
+	font-family: 'Consolas', 'Lucida Console', Monaco, monospace;
 }
 // Changes
+
 #content {
 	background-image: url('../img/bg-hacker.jpg');
 	background-size: contain;
 	border: solid 1px #070;
 	border-top: none;
 }
+
+#settings {
+	.input-addon-right input {
+		width: 124px;
+	}
+}
+
 .header {
 	border: solid 1px #070;
 }
+
 #play #servers .server {
 	&:hover {
 		background-color: #020;
 	}
+
 	&.active {
 		background-color: #030;
 	}
 }
+
+#play .play_body .description .mods a:not(:hover) {
+	color: darken(@link-color, 10%);
+}
+
 .scroll-dark {
 	&::-webkit-scrollbar-track {
 		border-left: 1px solid rgba(255, 255, 255, .07);
 		background-color: rgba(255, 255, 255, .04);
+
 		&:hover {
 			background-color: rgba(255, 255, 255, .1);
 		}
+
 		&:active {
 			background-color: rgba(255, 255, 255, .12);
 		}
 	}
+
 	&::-webkit-scrollbar-thumb {
 		background-color: rgba(255, 255, 255, .13);
+
 		&:hover {
 			background-color: rgba(255, 255, 255, .13);
 		}
+
 		&:active {
 			background-color: rgba(255, 255, 255, .17);
 		}
 	}
 }
+
 .checkbox {
 	& > label:before {
 		top: 0;
 	}
+
 	& > input[type='checkbox']:checked + label:before {
 		border-color: @text-color;
 		top: 0;
 	}
 }
+
 .dropdown ul {
 	border: solid 1px #070;
 
 	&::before {
 		display: none;
 	}
+
 	li a {
 		&:hover {
 			background-color: #020;
 		}
 	}
 }
+
 #loading-bar-container {
 	#loading-bar-text {
 		margin-top: 2px;
 		color: #fff;
 	}
+
 	progress {
 		&::-webkit-progress-bar {
 			background-color: #020;
 		}
+
 		&::-webkit-progress-value {
 			background-color: @border-color2;
 		}

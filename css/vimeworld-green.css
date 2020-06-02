@@ -1,48 +1,48 @@
 /**********************
-	Шрифты OpenSans
+	Шрифты Roboto
 **********************/
 @font-face {
-  font-family: 'OSoverride';
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 300;
-  src: url('../fonts/OpenSansLight.woff') format('woff'), url('../fonts/OpenSansLight.ttf') format('truetype');
+  src: url('../fonts/Montserrat-Light.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'OSoverride';
+  font-family: 'Montserrat';
   font-style: italic;
   font-weight: 300;
-  src: url('../fonts/OpenSansLightItalic.woff') format('woff'), url('../fonts/OpenSansLightItalic.ttf') format('truetype');
+  src: url('../fonts/Montserrat-LightItalic.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'OSoverride';
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/OpenSansRegular.woff') format('woff'), url('../fonts/OpenSansRegular.ttf') format('truetype');
+  src: url('../fonts/Montserrat-Regular.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'OSoverride';
+  font-family: 'Montserrat';
   font-style: italic;
   font-weight: 400;
-  src: url('../fonts/OpenSansRegularItalic.woff') format('woff'), url('../fonts/OpenSansRegularItalic.ttf') format('truetype');
+  src: url('../fonts/Montserrat-RegularItalic.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'OSoverride';
+  font-family: 'Montserrat';
   font-style: normal;
-  font-weight: 600;
-  src: url('../fonts/OpenSansSemiBold.woff') format('woff'), url('../fonts/OpenSansSemiBold.ttf') format('truetype');
+  font-weight: 500;
+  src: url('../fonts/Montserrat-Medium.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'OSoverride';
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 700;
-  src: url('../fonts/OpenSansBold.woff') format('woff'), url('../fonts/OpenSansBold.ttf') format('truetype');
+  src: url('../fonts/Montserrat-Bold.ttf') format('truetype');
 }
 /**********************
 	Общие стили
 **********************/
 body,
 html {
-  font-family: 'OSoverride', 'Helvetica Neue', sans-serif;
+  font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
   font-weight: 400;
   height: 100%;
   overflow: hidden;
@@ -51,7 +51,7 @@ html {
   line-height: 24px;
 }
 input {
-  font-family: 'OSoverride', 'Helvetica Neue', sans-serif;
+  font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
   box-sizing: border-box;
 }
 body,
@@ -66,10 +66,14 @@ ul {
   cursor: default;
   box-sizing: border-box;
 }
+b,
+strong {
+  font-weight: 700;
+}
 a {
   cursor: pointer;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
   color: #4396d8;
   transition: color 0.3s;
 }
@@ -123,16 +127,16 @@ select:focus {
   border: solid 1px #a2da67;
   box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
-input[type="email"][readonly],
-input[type="number"][readonly],
-input[type="password"][readonly],
-input[type="text"][readonly],
-select[readonly],
 input[type="email"][disabled],
 input[type="number"][disabled],
 input[type="password"][disabled],
 input[type="text"][disabled],
-select[disabled] {
+select[disabled],
+input[type="email"][readonly],
+input[type="number"][readonly],
+input[type="password"][readonly],
+input[type="text"][readonly],
+select[readonly] {
   background-color: #ededed;
 }
 select {
@@ -162,7 +166,7 @@ progress::-webkit-progress-value {
 }
 .input-addon-right label {
   float: left;
-  line-height: 32px;
+  line-height: 30px;
   margin-right: 6px;
 }
 .input-addon-right input {
@@ -175,7 +179,7 @@ progress::-webkit-progress-value {
   display: inline-block;
   background: #ededed;
   float: left;
-  line-height: 33px;
+  line-height: 31px;
   border: solid 1px #cccccc;
   border-left: none;
   padding: 0 5px;
@@ -191,14 +195,14 @@ progress::-webkit-progress-value {
 }
 .input-addon-center label {
   float: left;
-  line-height: 32px;
+  line-height: 30px;
   margin-right: 6px;
 }
 .input-addon-center .addon {
   display: inline-block;
   background: #ededed;
   float: left;
-  line-height: 33px;
+  line-height: 31px;
   border: solid 1px #cccccc;
   border-left: none;
   border-right: none;
@@ -341,7 +345,7 @@ progress::-webkit-progress-value {
 .dropdown ul {
   position: absolute;
   z-index: 500;
-  width: 180px;
+  width: 190px;
   display: none;
   visibility: hidden;
   opacity: 0;
@@ -502,13 +506,13 @@ ins.play-gif {
   font-weight: bold;
   color: #fff;
   border-radius: 50%;
-  opacity: .8;
+  opacity: 0.8;
   border: 4px solid #fff;
   cursor: pointer;
   text-decoration: none;
 }
 ins.play-gif:hover {
-  opacity: .5;
+  opacity: 0.5;
 }
 .gifplayer-wrapper {
   position: relative;
@@ -586,7 +590,7 @@ ins.play-gif:hover {
 img.emoji {
   height: 1.1em;
   width: 1.1em;
-  margin: 0 .05em 0 .1em;
+  margin: 0 0.05em 0 0.1em;
   vertical-align: -0.1em;
 }
 /**********************
@@ -607,7 +611,7 @@ body.main .header .menu.auth {
 */
 .logo {
   float: left;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 24px;
   margin-left: 10px;
   margin-right: 20px;
@@ -652,7 +656,7 @@ body.main .header .menu.auth {
   transition-property: opacity, background-color;
   transition-duration: 0.3s, 0.2s;
   transition-timing-function: ease;
-  font-weight: 600;
+  font-weight: 500;
   position: relative;
 }
 .header .menu a:hover {
@@ -719,8 +723,8 @@ body.main .header .menu.auth {
 }
 .header .dropdown {
   color: rgba(255, 255, 255, 0.7);
-  font-weight: 600;
-  margin-top: 5px;
+  font-weight: 500;
+  margin-top: 7px;
   margin-right: 35px;
 }
 .header .dropdown:hover {
@@ -758,8 +762,8 @@ body.main .header .menu.auth {
   right: 0;
 }
 #content .card h1 {
-  padding-bottom: 15px;
-  margin: 0 0 10px;
+  padding-bottom: 12px;
+  margin: 3px 0 10px;
   font-size: 22px;
   border-bottom: solid 1px #a2da67;
   font-weight: 300;
@@ -793,9 +797,10 @@ body.main .header .menu.auth {
 }
 #play #servers header {
   text-align: center;
-  padding-bottom: 15px;
+  padding-top: 3px;
+  padding-bottom: 12px;
   margin-bottom: 10px;
-  font-size: 22px;
+  font-size: 21px;
   border-bottom: solid 1px #a2da67;
   font-weight: 300;
   margin-bottom: 0;
@@ -1055,6 +1060,7 @@ body.main .header .menu.auth {
 #news .card .text .repost {
   border-left: 2px solid #a2da67;
   padding-left: 15px;
+  margin-top: -6px;
 }
 #news .card .text .repost h2 {
   font-size: 18px;
@@ -1195,7 +1201,7 @@ body.main .header .menu.auth {
   width: 66px;
 }
 #settings .input-addon-right input {
-  width: 117px;
+  width: 114px;
 }
 #settings select {
   width: 149px;
