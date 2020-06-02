@@ -110,10 +110,8 @@
 		post_owner_profile = findProfile(post.owner_id, response);
 		post.avatar = post_owner_profile.photo_50;
 
-		post.text = anchorme.js(post.text, {
-			emails: false,
-			html: false
-		});
+		post.text = anchorme(post.text);
+
 		var lines = post.text.split('\n');
 		var renderList = false;
 		for (i in lines) {
@@ -211,7 +209,6 @@
 	}
 
 	function findProfile(id, response) {
-		_common.print(id + " " + JSON.stringify(response))
 		var profile_list = response.profiles;
 		var group = id < 0;
 		if (group) {
