@@ -11,8 +11,8 @@
 	<link rel="stylesheet" href="css/tooltipster.css">
 	<link id="h_theme" rel="stylesheet" href="css/vimeworld-blue.css">
 	<script type="text/javascript">
-		const t_loader = '<div><svg class="svg-loading" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="48" height="48"><path transform="translate(2)" d="M 0 11.5239 V 20.4761 H 4 V 11.5239 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path><path transform="translate(8)" d="M 0 9.06868 V 22.9313 H 4 V 9.06868 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0.2" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path><path transform="translate(14)" d="M 0 4.56017 V 27.4398 H 4 V 4.56017 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0.4" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path><path transform="translate(20)" d="M 0 8.17295 V 23.827 H 4 V 8.17295 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0.6" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path><path transform="translate(26)" d="M 0 12 V 20 H 4 V 12 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0.8" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path></svg></div>';
-		const t_loader_center = '<div style="text-align: center; margin-top: 50px;">' + t_loader + '</div>';
+		var t_loader = '<div><svg class="svg-loading" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="48" height="48"><path transform="translate(2)" d="M 0 11.5239 V 20.4761 H 4 V 11.5239 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path><path transform="translate(8)" d="M 0 9.06868 V 22.9313 H 4 V 9.06868 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0.2" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path><path transform="translate(14)" d="M 0 4.56017 V 27.4398 H 4 V 4.56017 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0.4" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path><path transform="translate(20)" d="M 0 8.17295 V 23.827 H 4 V 8.17295 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0.6" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path><path transform="translate(26)" d="M 0 12 V 20 H 4 V 12 Z"><animate attributeName="d" values="M0 12 V20 H4 V12z; M0 4 V28 H4 V4z; M0 12 V20 H4 V12z; M0 12 V20 H4 V12z" dur="1.2s" repeatCount="indefinite" begin="0.8" keytimes="0;.2;.5;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.8 0.4 0.8" calcMode="spline"/></path></svg></div>';
+		var t_loader_center = '<div style="text-align: center; margin-top: 50px;">' + t_loader + '</div>';
 	</script>
 	<script src="js/libs/jquery-2.1.4.min.js"></script>
 	<script src="js/libs/jquery.tooltipster.min.js"></script>
@@ -171,10 +171,7 @@
 					<header>Выбор сервера</header>
 					<ul class="scroll-dark">
 						<li style="text-align: center">
-							<script>
-								document.write(t_loader);
-
-							</script>
+							<script>document.write(t_loader);</script>
 						</li>
 					</ul>
 					<div id="total-online"></div>

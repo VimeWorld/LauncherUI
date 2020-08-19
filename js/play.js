@@ -87,6 +87,72 @@
 		}
 	}
 
+  var loadServers = function() {
+    serversLoadedOnUsername = '';
+    _gui.loadServers({
+      callback: function(data) {
+        serversLoadedOnUsername = _config.getUsername();
+        data = $.parseJSON(data);
+        _common.print("Loaded " + data.length + " servers");
+        var out = '';
+        var id = 0;
+        servers = {};
+        nameToId = {};
+        data.forEach(function(server) {
+          servers[id] = server;
+          nameToId[server.name] = id;
+          server.id = id++;
+          out += tpl('tpl_server_list_item', server);
+        });
+
+        $('#servers ul')
+          .html(out)
+          .find('li').click(function(e) {
+            var id = parseInt($(this).attr('data-id'));
+            var server = servers[id];
+            _game.setSelected(id);
+            $(this).addClass('active').siblings().removeClass('active');
+            $('#server-name').text(server.name);
+            $('#server-description')
+              .html(twemoji.parse(server.desc, {
+                folder: 'svg',
+                ext: '.svg'
+              }))
+              .scrollTop(0);
+            $('#server-online').html(getOnlineString(server));
+            $('#server-description').find('.tooltip').tooltipster({
+              'delay': 0,
+              'speed': 100
+            });
+            setMiniGamesOnlineValues();
+          });
+
+        var lastServer = _config.getLastServer();
+        if (lastServer == null || nameToId[lastServer] == undefined)
+          id = 0;
+        else
+          id = nameToId[lastServer];
+        $('#srv_' + id).trigger('click');
+        $('#play-btn').removeAttr('disabled');
+
+        if (!onlineUpdatersScheduled) {
+          onlineUpdatersScheduled = true;
+          loadOnline();
+          loadMiniGamesOnline();
+        }
+      },
+      onError: function() {
+        var btn = $('<button class="btn btn-primary">Попробовать снова</button>');
+        btn.on('click', function(e){
+          loadServers();
+          $(this).attr('disabled', 'disabled').text('Загрузка...');
+        });
+        var container = $('<div style="text-align:center;"><p>Ошибка при загрузке списка серверов.</p></div>').append(btn);
+        $('#server-description').text('').append(container);
+      }
+    });
+  }
+
 	$(document).ready(function() {
 		$('#play-btn').click(function() {
 			$(this).attr('disabled', '');
@@ -110,59 +176,7 @@
 		$('#play').on('tab:open', function() {
 			if (_config.getUsername() == serversLoadedOnUsername)
 				return;
-			serversLoadedOnUsername = _config.getUsername();
-			_gui.loadServers({
-				callback: function(data) {
-					data = $.parseJSON(data);
-					_common.print("Loaded " + data.length + " servers");
-					var out = '';
-					var id = 0;
-					servers = {};
-					nameToId = {};
-					data.forEach(function(server) {
-						servers[id] = server;
-						nameToId[server.name] = id;
-						server.id = id++;
-						out += tpl('tpl_server_list_item', server);
-					});
-
-					$('#servers ul')
-						.html(out)
-						.find('li').click(function(e) {
-							var id = parseInt($(this).attr('data-id'));
-							var server = servers[id];
-							_game.setSelected(id);
-							$(this).addClass('active').siblings().removeClass('active');
-							$('#server-name').text(server.name);
-							$('#server-description')
-								.html(twemoji.parse(server.desc, {
-									folder: 'svg',
-									ext: '.svg'
-								}))
-								.scrollTop(0);
-							$('#server-online').html(getOnlineString(server));
-							$('#server-description').find('.tooltip').tooltipster({
-								'delay': 0,
-								'speed': 100
-							});
-							setMiniGamesOnlineValues();
-						});
-
-					var lastServer = _config.getLastServer();
-					if (lastServer == null || nameToId[lastServer] == undefined)
-						id = 0;
-					else
-						id = nameToId[lastServer];
-					$('#srv_' + id).trigger('click');
-					$('#play-btn').removeAttr('disabled');
-
-					if (!onlineUpdatersScheduled) {
-						onlineUpdatersScheduled = true;
-						loadOnline();
-						loadMiniGamesOnline();
-					}
-				}
-			});
+			loadServers();
 		});
 	});
 
