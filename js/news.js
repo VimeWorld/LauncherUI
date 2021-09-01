@@ -21,7 +21,7 @@
 				owner_id: group_id,
 				count: perPage,
 				filter: 'owner',
-				v: '5.45',
+				v: '5.131',
 				offset: offset
 			},*/
 			url: 'https://launcher.vimeworld.ru/data/news.php',
@@ -166,28 +166,19 @@
 		}
 
 		if (post.attachments) {
-			var getBestPhoto = function(photos) {
-				var photo = null;
-				for (i in photos) {
-					var s = photos[i];
-					if (photo == null || (s.width < 800 && s.width > photo.width))
-						photo = s;
-				}
-				return photo;
-			};
 			post.attachments.forEach(function(attach) {
 				if (attach.type == 'photo') {
 					var photo = attach.photo;
-					var url = photo.photo_807 || photo.photo_604 || photo.photo_130 || photo.photo_75;
+					var url = findPhotoUrl(photo.sizes, 807);
 					post.text += '<p class="img"><img src="' + url + '"></p>';
 				} else if (attach.type == 'link' && attach.link.url.indexOf('vk.com/@') !== -1) {
 					var article = attach.link;
-					article.img = article.photo.photo_807 || article.photo.photo_604 || article.photo.photo_130 || article.photo.photo_75;
+					article.img = findPhotoUrl(article.photo.sizes, 807);
 					article.url = article.url.replace('m.vk.com', 'vk.com').replace('@-29034706', '@vimeworld');
 					post.text += tpl('tpl_news_post_article', article);
 				} else if (attach.type == 'doc' && attach.doc.ext == 'gif') {
 					var preview = attach.doc.preview;
-					var photo = getBestPhoto(preview.photo.sizes);
+					var photo = findPhotoUrl(preview.photo.sizes, 807);
 					if (photo != null) {
 						if (preview.video != undefined && preview.video.src.indexOf('mp4=1') !== -1) {
 							post.text += '<p><img class="gifplayer" src="' + photo.src + '" data-mode="video" data-mp4="' + preview.video.src + '"></p>';
@@ -199,7 +190,7 @@
 					}
 				} else if (attach.type == 'video') {
 					var video = attach.video;
-					video.img = video.photo_800 || video.photo_640 || video.photo_320 || video.photo_130;
+					video.img = findPhotoUrl(video.image, 807);
 					video.url = video.external_url || 'https://vk.com/wall' + group_id + '_' + post.id + '?z=video' + video.owner_id + '_' + video.id;
 					video.duration = video.duration > 0 ? formatTime(parseTime(video.duration)) : '';
 					post.text += tpl('tpl_news_post_video', video);
@@ -238,6 +229,20 @@
 			profile.url = 'https://vk.com/' + profile.url;
 		}
 		return profile;
+	}
+
+	function findPhotoUrl(sizes, targetSize) {
+		var result = {
+			width: 0,
+			url: ""
+		};
+		for (var i = 0; i < sizes.length; i++) {
+			if (sizes[i].width > targetSize)
+				break;
+			if (sizes[i].width > result.width)
+				result = sizes[i];
+		}
+		return result.url;
 	}
 
 	function parseTime(time) {
