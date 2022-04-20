@@ -1,5 +1,5 @@
 # LauncherUI
-Исходные файлы интерфейса лаунчера [VimeWorld.ru](http://vimeworld.ru)
+Исходные файлы интерфейса лаунчера [VimeWorld](http://vimeworld.com)
 
 # Для разработчиков
 Проект готовый для открытия в редакторе [Atom](https://atom.io/).

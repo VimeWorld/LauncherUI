@@ -89,10 +89,10 @@ $(document).ready(function() {
 	});
 
 	$('#tocp').click(function() {
-		_common.openURL('https://cp.vimeworld.ru');
+		_common.openURL('https://cp.vimeworld.com');
 	});
 	$('#toprofile').click(function() {
-		_common.openURL('https://vimeworld.ru/player/' + _user.getUsername());
+		_common.openURL('https://vimeworld.com/player/' + _user.getUsername());
 	});
 
 	$('#a_totp_back').click(function() {

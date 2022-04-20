@@ -1,5 +1,5 @@
-/*! Copyright (c) 2015-2016, xtrafrancyz (http://xtrafrancyz.net)
- * VimeWorld.ru Launcher script
+/*! Copyright (c) 2015-2022, xtrafrancyz (https://xtrafrancyz.net)
+ * VimeWorld.com Launcher script
  */
 
 vw = {
