@@ -148,7 +148,7 @@
 								onkeydown="if (event.keyCode == 9) $(this).prev().focus()">
 							<div id="a_totp" class="hidden">
 								Введите единоразовый код авторизации:
-								<input type="number" style="-webkit-appearance: none" name="totp"
+								<input type="number" style="appearance: none; -webkit-appearance: none" name="totp"
 									placeholder="Код авторизации">
 							</div>
 						</div>
@@ -165,6 +165,17 @@
 							<a id="a_totp_back">Назад</a>
 						</div>
 					</form>
+					<div id="auth-step2" class="hidden">
+						<div id="auth-step2-loading" style="text-align: center; margin-top: 25px;">
+							<script>document.write(t_loader);</script>
+						</div>
+						<div id="auth-step2-error" class="hidden" style="text-align: center;">
+							<div id="auth-step2-error-text" style="margin-bottom: 20px;" class="red">Проверьте
+								подключение к интернету</div>
+							<button id="a_btn_retry_auth" class="btn btn-primary">Попробовать снова</button>
+							<div style="margin-top: 15px;"><a id="a_auth_back">Сменить аккаунт</a></div>
+						</div>
+					</div>
 				</div>
 			</div>
 
@@ -287,15 +298,6 @@
 						href="https://vime.one/download">скачать</a>.</p>
 				<div class="popup-footer">
 					<button class="btn btn-primary" onclick="overlay.hide()">Закрыть</button>
-				</div>
-			</div>
-			<div id="outdated-password-popup" class="popup danger">
-				<h3 style="border-color: #F44336">Ваш пароль устарел</h3>
-				<p>Возможно, ваш пароль попал в третьи руки и теперь аккаунт находится под угорозой взлома.</p>
-				<p>Вам необходимо как можно скорее изменить свой пароль в <a
-						href="https://cp.vimeworld.com/security">Личном Кабинете</a>.</p>
-				<div class="popup-footer">
-					<button class="btn btn-primary" onclick="overlay.hide()">Потом</button>
 				</div>
 			</div>
 		</div>

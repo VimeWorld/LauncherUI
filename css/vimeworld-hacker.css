@@ -141,6 +141,7 @@ select[readonly] {
 }
 select {
   -webkit-appearance: none;
+  appearance: none;
   padding-right: 25px;
   background: url('../img/svg/chevron-down.svg') no-repeat right 5px top 50% #000000;
 }
@@ -149,6 +150,7 @@ label {
 }
 progress {
   -webkit-appearance: none;
+  appearance: none;
   height: 4px;
   width: 100%;
   margin: 0;
@@ -259,6 +261,7 @@ progress::-webkit-progress-value {
   height: 0.5rem;
   top: 5px;
   -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 .btn {
   position: relative;
@@ -283,6 +286,7 @@ progress::-webkit-progress-value {
 }
 .btn:not([disabled]):hover::after {
   -webkit-transform: translateY(-80%);
+  transform: translateY(-80%);
 }
 .btn::after {
   position: absolute;
@@ -298,6 +302,7 @@ progress::-webkit-progress-value {
 .btn.btn-notransform::after {
   transition: none !important;
   -webkit-transform: none !important;
+  transform: none !important;
 }
 .btn.btn-error {
   background: #E74C3C;
@@ -352,6 +357,7 @@ progress::-webkit-progress-value {
   padding: 8px 0;
   font-size: 13px;
   -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
   background: #000000;
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
@@ -363,6 +369,7 @@ progress::-webkit-progress-value {
   position: absolute;
   left: 96px;
   -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
   z-index: 209;
 }
 .dropdown ul.bottom {
@@ -424,7 +431,9 @@ progress::-webkit-progress-value {
 #overlay {
   background: rgba(255, 255, 255, 0.7);
   -webkit-justify-content: center;
+  justify-content: center;
   -webkit-align-items: center;
+  align-items: center;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -473,6 +482,7 @@ progress::-webkit-progress-value {
   float: right;
   clear: right;
   -webkit-animation-duration: 0.4s;
+  animation-duration: 0.4s;
   color: white;
 }
 #ohsnap .alert-red {
