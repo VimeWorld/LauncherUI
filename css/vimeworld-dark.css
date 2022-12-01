@@ -46,7 +46,7 @@ html {
   font-weight: 400;
   height: 100%;
   overflow: hidden;
-  color: #eeeeee;
+  color: #eee;
   font-size: 14px;
   line-height: 24px;
 }
@@ -78,13 +78,13 @@ a {
   transition: color 0.3s;
 }
 a:hover {
-  color: #f44336;
+  color: #F44336;
 }
 h3 {
   font-weight: normal;
   margin: 10px 0;
   padding-left: 10px;
-  border-left: 4px solid #62b9ff;
+  border-left: 4px solid #62B9FF;
 }
 ul {
   padding-left: 15px;
@@ -99,7 +99,7 @@ li:before {
   right: 7px;
   position: relative;
   content: '■';
-  color: #62b9ff;
+  color: #62B9FF;
 }
 p {
   text-indent: 15px;
@@ -110,13 +110,13 @@ input[type="password"],
 input[type="text"],
 select {
   border-radius: 2px;
-  border: solid 1px #777777;
+  border: solid 1px #777;
   padding: 7px 8px;
   margin: 0;
   font-size: 14px;
   transition: border 0.3s;
   background-color: #363939;
-  color: #eeeeee;
+  color: #eee;
 }
 input[type="email"]:focus,
 input[type="number"]:focus,
@@ -124,7 +124,7 @@ input[type="password"]:focus,
 input[type="text"]:focus,
 select:focus {
   outline: none;
-  border: solid 1px #62b9ff;
+  border: solid 1px #62B9FF;
   box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 input[type="email"][disabled],
@@ -158,7 +158,7 @@ progress::-webkit-progress-bar {
   background-color: #f1f9ff;
 }
 progress::-webkit-progress-value {
-  background-color: #62b9ff;
+  background-color: #62B9FF;
 }
 .input-addon-right {
   overflow: auto;
@@ -180,7 +180,7 @@ progress::-webkit-progress-value {
   background: #2f3131;
   float: left;
   line-height: 31px;
-  border: solid 1px #777777;
+  border: solid 1px #777;
   border-left: none;
   padding: 0 5px;
   border-bottom-right-radius: 2px;
@@ -203,7 +203,7 @@ progress::-webkit-progress-value {
   background: #2f3131;
   float: left;
   line-height: 31px;
-  border: solid 1px #777777;
+  border: solid 1px #777;
   border-left: none;
   border-right: none;
   padding: 0 5px;
@@ -232,7 +232,7 @@ progress::-webkit-progress-value {
   padding: 0;
 }
 .checkbox > label {
-  color: #eeeeee;
+  color: #eee;
   padding-left: 2rem;
   position: relative;
 }
@@ -240,7 +240,7 @@ progress::-webkit-progress-value {
   display: none;
 }
 .checkbox > label:before {
-  border-color: #777777;
+  border-color: #777;
   border-style: solid;
   border-width: 1px;
   content: '';
@@ -252,7 +252,7 @@ progress::-webkit-progress-value {
   width: 1rem;
 }
 .checkbox > input[type='checkbox']:checked + label:before {
-  border-color: #333333;
+  border-color: #333;
   border-width: 2px;
   border-right-style: none;
   border-top-style: none;
@@ -394,7 +394,7 @@ progress::-webkit-progress-value {
 .dropdown ul li.divider {
   height: 1px;
   margin: 8px 0;
-  background: #777777;
+  background: #777;
 }
 .dropdown ul li a {
   display: block;
@@ -441,7 +441,7 @@ progress::-webkit-progress-value {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   width: 380px;
   background: #404343;
-  border: 1px solid #62b9ff;
+  border: 1px solid #62B9FF;
   padding: 20px;
   display: none;
 }
@@ -569,7 +569,7 @@ ins.play-gif:hover {
   min-height: 80px;
 }
 .svg-loading {
-  fill: #333333;
+  fill: #333;
 }
 .hidden {
   display: none;
@@ -628,7 +628,7 @@ body.main .header .menu.auth {
   margin-bottom: 3px;
 }
 .header {
-  background-color: #333333;
+  background-color: #333;
   color: #fefefe;
   height: 58px;
   padding: 10px;
@@ -739,7 +739,7 @@ body.main .header .menu.auth {
   position: relative;
   background: fixed url('../img/bg.jpg') no-repeat center center;
   background-size: cover;
-  border: solid 1px #333333;
+  border: solid 1px #333;
   border-top: none;
 }
 #content .tab {
@@ -753,7 +753,7 @@ body.main .header .menu.auth {
 }
 #content .card {
   background: #404343;
-  border: solid 1px #777777;
+  border: solid 1px #777;
   box-shadow: 0 0 13px 1px rgba(0, 0, 0, 0.2);
   padding: 20px 25px;
   width: 400px;
@@ -765,7 +765,7 @@ body.main .header .menu.auth {
   padding-bottom: 12px;
   margin: 3px 0 10px;
   font-size: 22px;
-  border-bottom: solid 1px #62b9ff;
+  border-bottom: solid 1px #62B9FF;
   font-weight: 300;
 }
 #content .card .card-form {
@@ -801,7 +801,7 @@ body.main .header .menu.auth {
   padding-bottom: 12px;
   margin-bottom: 10px;
   font-size: 21px;
-  border-bottom: solid 1px #62b9ff;
+  border-bottom: solid 1px #62B9FF;
   font-weight: 300;
   margin-bottom: 0;
 }
@@ -829,7 +829,7 @@ body.main .header .menu.auth {
   color: #898989;
 }
 #play #servers .server.active {
-  background-color: #333333;
+  background-color: #333;
   color: #fff;
   font-weight: bold;
 }
@@ -848,7 +848,7 @@ body.main .header .menu.auth {
   font-size: 13px;
 }
 #play #servers #total-online {
-  border-top: 1px solid #62b9ff;
+  border-top: 1px solid #62B9FF;
   padding-top: 8px;
   text-align: center;
 }
@@ -942,7 +942,7 @@ body.main .header .menu.auth {
   background: #404343;
   width: calc(100% - 40px);
   padding-top: 7px;
-  border-top: 1px solid #62b9ff;
+  border-top: 1px solid #62B9FF;
 }
 #play .play_body .bottom .loading-info {
   bottom: 0;
@@ -959,7 +959,7 @@ body.main .header .menu.auth {
 }
 #play .play_body .bottom .loading-info #loading-bar-container progress {
   height: 25px;
-  border: 1px solid #62b9ff;
+  border: 1px solid #62B9FF;
   border-radius: 2px;
   position: absolute;
 }
@@ -1058,7 +1058,7 @@ body.main .header .menu.auth {
   margin: 0 auto;
 }
 #news .card .text .repost {
-  border-left: 2px solid #62b9ff;
+  border-left: 2px solid #62B9FF;
   padding-left: 15px;
   margin-top: -6px;
 }
@@ -1185,7 +1185,7 @@ body.main .header .menu.auth {
   fill: #6baee0;
 }
 #news .card .foot .likes:hover path:not([fill="none"]) {
-  fill: #f44336;
+  fill: #F44336;
 }
 #news .card .foot .comments {
   float: left;
@@ -1213,7 +1213,7 @@ body.main .header .menu.auth {
   color: #6baee0 !important;
 }
 .checkbox > input[type='checkbox']:checked + label:before {
-  border-color: #62b9ff;
+  border-color: #62B9FF;
 }
 #loading-bar-text {
   text-shadow: 0 0 10px #000000, 0 0 10px #000000 !important;

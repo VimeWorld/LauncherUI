@@ -46,7 +46,7 @@ html {
   font-weight: 400;
   height: 100%;
   overflow: hidden;
-  color: #333333;
+  color: #333;
   font-size: 14px;
   line-height: 24px;
 }
@@ -74,11 +74,11 @@ a {
   cursor: pointer;
   text-decoration: none;
   font-weight: 500;
-  color: #4396d8;
+  color: #4396D8;
   transition: color 0.3s;
 }
 a:hover {
-  color: #f44336;
+  color: #F44336;
 }
 h3 {
   font-weight: normal;
@@ -110,13 +110,13 @@ input[type="password"],
 input[type="text"],
 select {
   border-radius: 2px;
-  border: solid 1px #cccccc;
+  border: solid 1px #ccc;
   padding: 7px 8px;
   margin: 0;
   font-size: 14px;
   transition: border 0.3s;
-  background-color: #ffffff;
-  color: #333333;
+  background-color: #fff;
+  color: #333;
 }
 input[type="email"]:focus,
 input[type="number"]:focus,
@@ -142,7 +142,7 @@ select[readonly] {
 select {
   -webkit-appearance: none;
   padding-right: 25px;
-  background: url('../img/svg/chevron-down.svg') no-repeat right 5px top 50% #ffffff;
+  background: url('../img/svg/chevron-down.svg') no-repeat right 5px top 50% #fff;
 }
 label {
   cursor: pointer;
@@ -180,7 +180,7 @@ progress::-webkit-progress-value {
   background: #ededed;
   float: left;
   line-height: 31px;
-  border: solid 1px #cccccc;
+  border: solid 1px #ccc;
   border-left: none;
   padding: 0 5px;
   border-bottom-right-radius: 2px;
@@ -203,7 +203,7 @@ progress::-webkit-progress-value {
   background: #ededed;
   float: left;
   line-height: 31px;
-  border: solid 1px #cccccc;
+  border: solid 1px #ccc;
   border-left: none;
   border-right: none;
   padding: 0 5px;
@@ -232,7 +232,7 @@ progress::-webkit-progress-value {
   padding: 0;
 }
 .checkbox > label {
-  color: #333333;
+  color: #333;
   padding-left: 2rem;
   position: relative;
 }
@@ -240,7 +240,7 @@ progress::-webkit-progress-value {
   display: none;
 }
 .checkbox > label:before {
-  border-color: #cccccc;
+  border-color: #ccc;
   border-style: solid;
   border-width: 1px;
   content: '';
@@ -252,7 +252,7 @@ progress::-webkit-progress-value {
   width: 1rem;
 }
 .checkbox > input[type='checkbox']:checked + label:before {
-  border-color: #2196f3;
+  border-color: #2196F3;
   border-width: 2px;
   border-right-style: none;
   border-top-style: none;
@@ -352,14 +352,14 @@ progress::-webkit-progress-value {
   padding: 8px 0;
   font-size: 13px;
   -webkit-animation-duration: 0.3s;
-  background: #ffffff;
+  background: #fff;
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 .dropdown ul::before {
   content: '';
   width: 20px;
   height: 20px;
-  background: #ffffff;
+  background: #fff;
   position: absolute;
   left: 96px;
   -webkit-transform: rotate(45deg);
@@ -382,7 +382,7 @@ progress::-webkit-progress-value {
   bottom: -10px;
 }
 .dropdown ul li {
-  background: #ffffff;
+  background: #fff;
   margin: 0;
   padding: 0;
   position: relative;
@@ -394,7 +394,7 @@ progress::-webkit-progress-value {
 .dropdown ul li.divider {
   height: 1px;
   margin: 8px 0;
-  background: #cccccc;
+  background: #ccc;
 }
 .dropdown ul li a {
   display: block;
@@ -440,7 +440,7 @@ progress::-webkit-progress-value {
 #overlay .popup {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   width: 380px;
-  background: #ffffff;
+  background: #fff;
   border: 1px solid #62b9ff;
   padding: 20px;
   display: none;
@@ -569,7 +569,7 @@ ins.play-gif:hover {
   min-height: 80px;
 }
 .svg-loading {
-  fill: #2196f3;
+  fill: #2196F3;
 }
 .hidden {
   display: none;
@@ -628,7 +628,7 @@ body.main .header .menu.auth {
   margin-bottom: 3px;
 }
 .header {
-  background-color: #2196f3;
+  background-color: #2196F3;
   color: #fefefe;
   height: 58px;
   padding: 10px;
@@ -739,7 +739,7 @@ body.main .header .menu.auth {
   position: relative;
   background: fixed url('../img/bg.jpg') no-repeat center center;
   background-size: cover;
-  border: solid 1px #2196f3;
+  border: solid 1px #2196F3;
   border-top: none;
 }
 #content .tab {
@@ -752,8 +752,8 @@ body.main .header .menu.auth {
   display: none;
 }
 #content .card {
-  background: #ffffff;
-  border: solid 1px #cccccc;
+  background: #fff;
+  border: solid 1px #ccc;
   box-shadow: 0 0 13px 1px rgba(0, 0, 0, 0.2);
   padding: 20px 25px;
   width: 400px;
@@ -792,7 +792,7 @@ body.main .header .menu.auth {
   width: 220px;
   float: left;
   padding: 10px 15px;
-  background-color: #ffffff;
+  background-color: #fff;
   height: calc(100% - 20px);
 }
 #play #servers header {
@@ -829,7 +829,7 @@ body.main .header .menu.auth {
   color: #898989;
 }
 #play #servers .server.active {
-  background-color: #2196f3;
+  background-color: #2196F3;
   color: #fff;
   font-weight: bold;
 }
@@ -861,7 +861,7 @@ body.main .header .menu.auth {
   margin-top: 10px;
   margin-right: 10px;
   padding: 10px 20px 13px;
-  background-color: #ffffff;
+  background-color: #fff;
   height: calc(100% - 20px);
   position: relative;
 }
@@ -939,7 +939,7 @@ body.main .header .menu.auth {
 #play .play_body .bottom {
   position: absolute;
   bottom: 10px;
-  background: #ffffff;
+  background: #fff;
   width: calc(100% - 40px);
   padding-top: 7px;
   border-top: 1px solid #62b9ff;
@@ -1047,7 +1047,7 @@ body.main .header .menu.auth {
   display: block;
   position: relative;
   z-index: 2;
-  box-shadow: 0 -5px 10px 3px #ffffff;
+  box-shadow: 0 -5px 10px 3px #fff;
 }
 #news .card .text p {
   margin-top: 0;
@@ -1182,10 +1182,10 @@ body.main .header .menu.auth {
 }
 #news .card .foot .likes svg path:not([fill="none"]) {
   transition: fill 0.3s;
-  fill: #4396d8;
+  fill: #4396D8;
 }
 #news .card .foot .likes:hover path:not([fill="none"]) {
-  fill: #f44336;
+  fill: #F44336;
 }
 #news .card .foot .comments {
   float: left;

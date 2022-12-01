@@ -142,11 +142,14 @@
 					<h1>Авторизация</h1>
 					<form id="auth-form" class="card-form" method="POST" action="#">
 						<div class="input">
-							<input type="text" name="username" maxlength="16" placeholder="Логин" onkeydown="if (event.keyCode == 9) $(this).next().focus()">
-							<input type="password" name="password" placeholder="Пароль" onkeydown="if (event.keyCode == 9) $(this).prev().focus()">
+							<input type="text" name="username" maxlength="16" placeholder="Логин"
+								onkeydown="if (event.keyCode == 9) $(this).next().focus()">
+							<input type="password" name="password" placeholder="Пароль"
+								onkeydown="if (event.keyCode == 9) $(this).prev().focus()">
 							<div id="a_totp" class="hidden">
 								Введите единоразовый код авторизации:
-								<input type="number" style="-webkit-appearance: none" name="totp" placeholder="Код авторизации">
+								<input type="number" style="-webkit-appearance: none" name="totp"
+									placeholder="Код авторизации">
 							</div>
 						</div>
 						<div class="checkbox">
@@ -240,9 +243,11 @@
 					<div class="input-addon-center">
 						<label for="s_width">Размеры окна:</label>
 						<div class="clearfix">
-							<input id="s_width" type="text" placeholder="Ширина" data-enter-blur onkeydown="if (event.keyCode == 9) $(this).next().next().focus()">
+							<input id="s_width" type="text" placeholder="Ширина" data-enter-blur
+								onkeydown="if (event.keyCode == 9) $(this).next().next().focus()">
 							<div class="addon">x</div>
-							<input id="s_height" type="text" placeholder="Высота" data-enter-blur onkeydown="if (event.keyCode == 9) $(this).prev().prev().focus()">
+							<input id="s_height" type="text" placeholder="Высота" data-enter-blur
+								onkeydown="if (event.keyCode == 9) $(this).prev().prev().focus()">
 						</div>
 					</div>
 					<div>
@@ -269,7 +274,8 @@
 			<div id="update-popup" class="popup">
 				<h3>Найдено обновление лаунчера</h3>
 				<p>Для обновления необходимо перезапустить его.</p>
-				<p>Если после перезапуска это сообщение не исчезло, значит нужно скачать новый лаунчер с сайта: <a href="http://vime.one/download">скачать</a>.</p>
+				<p>Если после перезапуска это сообщение не исчезло, значит нужно скачать новый лаунчер с сайта: <a
+						href="https://vime.one/download">скачать</a>.</p>
 				<div class="popup-footer">
 					<button class="btn btn-primary" onclick="_gui.exit()">Закрыть</button>
 				</div>
@@ -277,7 +283,8 @@
 			<div id="invalid-launch-popup" class="popup">
 				<h3>Некорректный запуск</h3>
 				<p>Скорее всего вы запустили <b>VimeWorld.exe</b> из папки <b>.vimeworld</b>, а это было ошибкой.</p>
-				<p>Запускать лаунчер нужно только через тот файл, который вы загрузили с сайта: <a href="http://vime.one/download">скачать</a>.</p>
+				<p>Запускать лаунчер нужно только через тот файл, который вы загрузили с сайта: <a
+						href="https://vime.one/download">скачать</a>.</p>
 				<div class="popup-footer">
 					<button class="btn btn-primary" onclick="overlay.hide()">Закрыть</button>
 				</div>
@@ -285,7 +292,8 @@
 			<div id="outdated-password-popup" class="popup danger">
 				<h3 style="border-color: #F44336">Ваш пароль устарел</h3>
 				<p>Возможно, ваш пароль попал в третьи руки и теперь аккаунт находится под угорозой взлома.</p>
-				<p>Вам необходимо как можно скорее изменить свой пароль в <a href="https://cp.vimeworld.com/security">Личном Кабинете</a>.</p>
+				<p>Вам необходимо как можно скорее изменить свой пароль в <a
+						href="https://cp.vimeworld.com/security">Личном Кабинете</a>.</p>
 				<div class="popup-footer">
 					<button class="btn btn-primary" onclick="overlay.hide()">Потом</button>
 				</div>

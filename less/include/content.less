@@ -56,6 +56,7 @@
 		}
 	}
 }
+
 /*
 * Страница с серверами и кнопкой входа
 */
@@ -186,7 +187,7 @@
 				-webkit-flex-wrap: wrap;
 				-webkit-justify-content: center;
 
-				& > a {
+				&>a {
 					@size: 110px;
 					display: block;
 					width: @size;
@@ -310,6 +311,7 @@
 		}
 	}
 }
+
 /*
 * Страница новостей
 */
@@ -352,7 +354,7 @@
 			&.minimized {
 				max-height: 250px !important;
 
-				& + a {
+				&+a {
 					display: block;
 					position: relative;
 					z-index: 2;
@@ -490,7 +492,7 @@
 					padding: 0 20px 20px;
 					word-break: break-word;
 					word-wrap: break-word;
-					text-shadow: 0 4px 21px rgba(0,0,0,.32);
+					text-shadow: 0 4px 21px rgba(0, 0, 0, .32);
 					max-width: 100%;
 					box-sizing: border-box;
 					cursor: pointer;
@@ -532,12 +534,13 @@
 }
 
 #settings {
-	div > div.clearfix,
-	div > select {
+
+	div>div.clearfix,
+	div>select {
 		float: right;
 	}
 
-	.card > div:not(.checkbox) {
+	.card>div:not(.checkbox) {
 		margin-top: 10px;
 	}
 

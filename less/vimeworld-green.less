@@ -1,12 +1,14 @@
-// out: ../css/vimeworld-blue.css
-// out: ../css/vimeworld-blue.min.css, compress: true
 @text-color: #333;
 @link-color: #4396D8;
 @link-hover-color: #F44336;
-@main-color: #2196F3;
+@main-color: #7CB342;
 @background-color: #fff;
 @border-color: lighten(saturate(@main-color, 15%), 15%);
 @border-color2: #ccc;
 @header-height: 58px;
 @input-color: @background-color;
-@import "vimeworld";
+@import "include/vimeworld";
+
+#content {
+	background-image: url('../img/bg-green.jpg');
+}

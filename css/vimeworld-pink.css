@@ -46,7 +46,7 @@ html {
   font-weight: 400;
   height: 100%;
   overflow: hidden;
-  color: #333333;
+  color: #333;
   font-size: 14px;
   line-height: 24px;
 }
@@ -78,7 +78,7 @@ a {
   transition: color 0.3s;
 }
 a:hover {
-  color: #f44336;
+  color: #F44336;
 }
 h3 {
   font-weight: normal;
@@ -116,7 +116,7 @@ select {
   font-size: 14px;
   transition: border 0.3s;
   background-color: #fff5fb;
-  color: #333333;
+  color: #333;
 }
 input[type="email"]:focus,
 input[type="number"]:focus,
@@ -232,7 +232,7 @@ progress::-webkit-progress-value {
   padding: 0;
 }
 .checkbox > label {
-  color: #333333;
+  color: #333;
   padding-left: 2rem;
   position: relative;
 }
@@ -1185,7 +1185,7 @@ body.main .header .menu.auth {
   fill: #f96eba;
 }
 #news .card .foot .likes:hover path:not([fill="none"]) {
-  fill: #f44336;
+  fill: #F44336;
 }
 #news .card .foot .comments {
   float: left;

@@ -1,0 +1,26 @@
+{
+  "name": "launcherui",
+  "version": "1.0.0",
+  "description": "Исходные файлы интерфейса лаунчера [VimeWorld](https://vimeworld.com)",
+  "main": "index.html",
+  "scripts": {
+    "dev": "concurrently --kill-others \"less-watch-compiler less css vimeworld-blue.less\" \"less-watch-compiler less css vimeworld-dark.less\" \"less-watch-compiler less css vimeworld-green.less\" \"less-watch-compiler less css vimeworld-hacker.less\" \"less-watch-compiler less css vimeworld-pink.less\" \"http-server . -p 5174 -c-1\"",
+    "build": "lessc less/vimeworld-blue.less css/vimeworld-blue.css && lessc less/vimeworld-dark.less css/vimeworld-dark.css && lessc less/vimeworld-green.less css/vimeworld-green.css && lessc less/vimeworld-hacker.less css/vimeworld-hacker.css && lessc less/vimeworld-pink.less css/vimeworld-pink.css && cd build && py build.py"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VimeWorld/LauncherUI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VimeWorld/LauncherUI/issues"
+  },
+  "homepage": "https://github.com/VimeWorld/LauncherUI#readme",
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "http-server": "^14.1.1",
+    "less": "^4.1.3",
+    "less-watch-compiler": "^1.16.3"
+  }
+}

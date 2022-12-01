@@ -1,4 +1,4 @@
-(function() {
+(function () {
 	var vkProfileLinkRegexp = /\[(.*)\|(.*)\]/;
 	var perPage = 10;
 	var offset = 0;
@@ -16,7 +16,7 @@
 		loading = true;
 		ajax({
 			/* Original request to vk.com
-			url: 'http://api.vk.com/method/wall.get',
+			url: 'https://api.vk.com/method/wall.get',
 			data: {
 				owner_id: group_id,
 				count: perPage,
@@ -29,7 +29,7 @@
 				count: perPage,
 				offset: offset
 			},
-			callback: function(data) {
+			callback: function (data) {
 				var firstLoad = offset == 0;
 				offset += perPage;
 
@@ -115,7 +115,7 @@
 		var lines = post.text.split('\n');
 		var renderList = false;
 		for (i in lines) {
-			lines[i] = lines[i].replace(vkProfileLinkRegexp, function(str, id, name, offset, s) {
+			lines[i] = lines[i].replace(vkProfileLinkRegexp, function (str, id, name, offset, s) {
 				return '<a href="https://vk.com/' + id + '">' + name + '</a>';
 			});
 			var c = lines[i].substr(0, 1);
@@ -166,7 +166,7 @@
 		}
 
 		if (post.attachments) {
-			post.attachments.forEach(function(attach) {
+			post.attachments.forEach(function (attach) {
 				if (attach.type == 'photo') {
 					var photo = attach.photo;
 					var url = findPhotoUrl(photo.sizes, 807);
@@ -255,7 +255,7 @@
 	}
 
 	function formatTime(time) {
-		var toStr = function(num, length) {
+		var toStr = function (num, length) {
 			var str = num.toString();
 			while (str.length < length)
 				str = '0' + str;
@@ -271,20 +271,20 @@
 		return out;
 	}
 
-	$(document).ready(function(event) {
-		$('#news').scroll(function() {
+	$(document).ready(function (event) {
+		$('#news').scroll(function () {
 			var $this = $(this);
 			if ($this[0].scrollHeight - $this.height() - $this.scrollTop() < 100) {
 				load_news();
 			}
-		}).one('tab:open', function() {
+		}).one('tab:open', function () {
 			lastWatched = newestPost;
 			_config.setLastWatchedPost(lastWatched);
 			$('.m_n_unwatched').text('');
 		});
 	});
 
-	$(document).on('vimeworld:load', function(event) {
+	$(document).on('vimeworld:load', function (event) {
 		_common.print('Trying to load news...');
 		lastWatched = _config.getLastWatchedPost();
 		load_news();

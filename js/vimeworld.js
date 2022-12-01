@@ -3,14 +3,14 @@
  */
 
 vw = {
-	showInvalidLaunch: function() {
-		overlay.show(function() {
+	showInvalidLaunch: function () {
+		overlay.show(function () {
 			$('#invalid-launch-popup').removeClass('active');
 		}, true);
 		$('#invalid-launch-popup').addClass('active');
 	},
-	showNeedUpdate: function() {
-		overlay.show(function() {}, false);
+	showNeedUpdate: function () {
+		overlay.show(function () { }, false);
 		$('#update-popup').addClass('active');
 	},
 	gameLoading: false
@@ -36,7 +36,7 @@ var tooltipster_hover = {
 };
 
 //Перехватывает ошибки и выводит их в консоль
-window.onerror = function() {
+window.onerror = function () {
 	if (window._common != undefined)
 		_common.onerror(arguments);
 };
@@ -67,26 +67,26 @@ function ajax(options) {
 }
 
 var overlay = {
-	show: function(callback, hideOnClick) {
+	show: function (callback, hideOnClick) {
 		this.hideOnClick = hideOnClick;
 		this.callback = callback;
 		$('#overlay').addClass('active').animate({
 			'opacity': 1
 		});
 	},
-	hide: function() {
+	hide: function () {
 		this._close();
 		if (this.callback != undefined) {
 			this.callback();
 			this.callback = undefined;
 		}
 	},
-	click: function() {
+	click: function () {
 		if (this.callback == undefined || !this.hideOnClick)
 			return;
 		this.hide();
 	},
-	closeNow: function() {
+	closeNow: function () {
 		if (this.callback != undefined) {
 			this.callback();
 			this.callback = undefined;
@@ -95,17 +95,17 @@ var overlay = {
 			'opacity': 0
 		}).removeClass('active');
 	},
-	closeNoCallback: function() {
+	closeNoCallback: function () {
 		this._close();
 		this.callback = undefined;
 	},
-	_close: function() {
+	_close: function () {
 		if (this.callback == undefined)
 			return;
 		$('#overlay').animate({
 			'opacity': 0
 		}, {
-			complete: function() {
+			complete: function () {
 				$('#overlay').removeClass('active');
 			}
 		});
@@ -113,31 +113,31 @@ var overlay = {
 };
 
 //Вызывается после полной загрузки всех "мостов"
-$(document).on('vimeworld:load', function() {
+$(document).on('vimeworld:load', function () {
 	_common.print("Init...");
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
 	// Запрет перетягивания картинок
-	$('img').on('dragstart', function(event) {
+	$('img').on('dragstart', function (event) {
 		event.preventDefault();
 	});
 
 	// Запрет нажатия кнопки Tab
-	$(document).keydown(function(e) {
+	$(document).keydown(function (e) {
 		if (e.keyCode == 9) // tab pressed
 			e.preventDefault();
 	});
 
 	// Убирание фокуса с инпута при нажатии на ентер
-	$('input[data-enter-blur]').keydown(function(e) {
+	$('input[data-enter-blur]').keydown(function (e) {
 		if (e.keyCode == 13) // enter pressed
 			$(e.target).blur();
 	});
 
 	// Запрет выделения
 	var focused;
-	$('*').mousedown(function(e) {
+	$('*').mousedown(function (e) {
 		if (e.bypass != undefined)
 			return true;
 
@@ -166,17 +166,17 @@ $(document).ready(function() {
 	});
 	$('.tooltip').tooltipster();
 
-	$('#overlay').click(function(e) {
+	$('#overlay').click(function (e) {
 		if (e.target != this) return;
 		overlay.click();
 	});
 
 	// Верхнее меню
-	(function() {
-		var handler = function() {
+	(function () {
+		var handler = function () {
 			$(this).attr('class', 'tab hidden');
 		};
-		$('.header .menu a').click(function() {
+		$('.header .menu a').click(function () {
 			var $this = $(this);
 			if ($this.hasClass('active') || $this.attr('href').lastIndexOf('#', 0) !== 0)
 				return;
@@ -196,13 +196,13 @@ $(document).ready(function() {
 	})()
 
 	// Выпадающие менюшки
-	$('.dropdown > div').click(function() {
+	$('.dropdown > div').click(function () {
 		var btn = $(this).parent();
 		if (btn.hasClass('active')) {
 			btn.find('ul')
 				.removeClass('zoomIn')
 				.addClass('zoomOutRight')
-				.one('webkitAnimationEnd animationend', function() {
+				.one('webkitAnimationEnd animationend', function () {
 					btn.removeClass('active')
 				});
 		} else {
@@ -213,36 +213,36 @@ $(document).ready(function() {
 				.addClass('zoomIn');
 		}
 	});
-	$(document).mouseup(function(e) {
+	$(document).mouseup(function (e) {
 		var container = $('.dropdown');
 		if (!container.is(e.target) && (container.has(e.target).length === 0 || !e.target.hasAttribute("do-not-close")))
 			container.filter('.active').find('>div').trigger('click');
 	});
 
 	// Кнопки закрыть и свернуть
-	$('#gui_close').click(function(event) {
+	$('#gui_close').click(function (event) {
 		_gui.exit();
 	});
-	$('#gui_min').click(function(event) {
+	$('#gui_min').click(function (event) {
 		_common.minimize();
 	});
 
 	// Перетаскивание окна
-	$('.header').mousedown(function(e) {
+	$('.header').mousedown(function (e) {
 		e.stopImmediatePropagation();
 		_common.startDrag();
 		return false;
 	});
 
 	// Изменение размера окна
-	$('#drag-resize').mousedown(function(e) {
+	$('#drag-resize').mousedown(function (e) {
 		e.stopImmediatePropagation();
 		_common.startResize();
 		return false;
 	});
 
 	// Обработка нажатий на ссылки
-	$('body').on('click', 'a', function(e) {
+	$('body').on('click', 'a', function (e) {
 		e.preventDefault();
 		var href = $(this).attr('href');
 		if (href == undefined)
@@ -269,8 +269,8 @@ $(document).ready(function() {
 		}
 	});
 
-	setInterval(function() {
-		$('.time-from-now').each(function() {
+	setInterval(function () {
+		$('.time-from-now').each(function () {
 			$(this).text(moment($(this).attr('data-time'), "X").fromNow());
 		});
 	}, 30000);

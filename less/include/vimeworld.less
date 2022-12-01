@@ -1,6 +1,8 @@
 // main: theme-blue.less|theme-dark.less|theme-pink.less|theme-green.less|theme-hacker.less
 // Флаги
-@resizable: false; /**********************
+@resizable: false;
+
+/**********************
 	Шрифты Roboto
 **********************/
 @font-face {
@@ -9,36 +11,42 @@
 	font-weight: 300;
 	src: url('../fonts/Montserrat-Light.ttf') format('truetype');
 }
+
 @font-face {
 	font-family: 'Montserrat';
 	font-style: italic;
 	font-weight: 300;
 	src: url('../fonts/Montserrat-LightItalic.ttf') format('truetype');
 }
+
 @font-face {
 	font-family: 'Montserrat';
 	font-style: normal;
 	font-weight: 400;
 	src: url('../fonts/Montserrat-Regular.ttf') format('truetype');
 }
+
 @font-face {
 	font-family: 'Montserrat';
 	font-style: italic;
 	font-weight: 400;
 	src: url('../fonts/Montserrat-RegularItalic.ttf') format('truetype');
 }
+
 @font-face {
 	font-family: 'Montserrat';
 	font-style: normal;
 	font-weight: 500;
 	src: url('../fonts/Montserrat-Medium.ttf') format('truetype');
 }
+
 @font-face {
 	font-family: 'Montserrat';
 	font-style: normal;
 	font-weight: 700;
 	src: url('../fonts/Montserrat-Bold.ttf') format('truetype');
 }
+
 /**********************
 	Общие стили
 **********************/
@@ -209,7 +217,7 @@ progress {
 	overflow: auto;
 	zoom: 1;
 
-	> div {
+	>div {
 		float: right;
 	}
 
@@ -252,23 +260,23 @@ progress {
 	position: relative;
 	margin-bottom: 12px;
 
-	& > * {
+	&>* {
 		cursor: pointer;
 		margin: 0;
 		padding: 0;
 	}
 
-	& > label {
+	&>label {
 		color: @text-color;
 		padding-left: 2rem;
 		position: relative;
 	}
 
-	& > input[type='checkbox'] {
+	&>input[type='checkbox'] {
 		display: none;
 	}
 
-	& > label:before {
+	&>label:before {
 		border-color: @border-color2;
 		border-style: solid;
 		border-width: 1px;
@@ -281,7 +289,7 @@ progress {
 		width: 1rem;
 	}
 
-	& > input[type='checkbox']:checked + label:before {
+	&>input[type='checkbox']:checked+label:before {
 		border-color: @main-color;
 		border-width: 2px;
 		border-right-style: none;
@@ -401,7 +409,8 @@ progress {
 		font-size: 13px;
 		-webkit-animation-duration: 0.3s;
 		background: @background-color;
-		box-shadow: 0 2px 4px -1px rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+		box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+
 		//Белая стрелочка
 		&::before {
 			content: '';
@@ -419,7 +428,7 @@ progress {
 			top: 36px;
 
 			&::before {
-				box-shadow: -2px -2px 4px -1px rgba(0,0,0,.14);
+				box-shadow: -2px -2px 4px -1px rgba(0, 0, 0, .14);
 				top: -10px;
 			}
 		}
@@ -429,7 +438,7 @@ progress {
 			bottom: 34px;
 
 			&::before {
-				box-shadow: 2px 2px 4px -1px rgba(0,0,0,.14), 1px 1px 2px 0 rgba(0,0,0,.2);
+				box-shadow: 2px 2px 4px -1px rgba(0, 0, 0, .14), 1px 1px 2px 0 rgba(0, 0, 0, .2);
 				bottom: -10px;
 			}
 		}
@@ -481,6 +490,7 @@ progress {
 	height: 100%;
 	background: #F9F9F9;
 }
+
 /**********************
 	Отдельные элементы
 **********************/
@@ -503,7 +513,7 @@ progress {
 	}
 
 	.popup {
-		box-shadow: 0 4px 16px rgba(0,0,0,.2);
+		box-shadow: 0 4px 16px rgba(0, 0, 0, .2);
 		width: 380px;
 		background: @background-color;
 		border: 1px solid @border-color;
@@ -527,7 +537,7 @@ progress {
 	}
 }
 
-#drag-resize when (@resizable = true) {
+#drag-resize when (@resizable =true) {
 	position: absolute;
 	bottom: 0;
 	right: 0;
@@ -538,7 +548,7 @@ progress {
 	z-index: 1000;
 }
 
-#drag-resize when (@resizable = false) {
+#drag-resize when (@resizable =false) {
 	display: none;
 }
 
@@ -611,6 +621,7 @@ ins.play-gif:hover {
 	position: relative;
 	display: inline-block;
 }
+
 /**********************
 	Вспомогательные классы
 **********************/
@@ -709,11 +720,13 @@ img.emoji {
 	margin: 0 0.05em 0 0.1em;
 	vertical-align: -0.1em;
 }
+
 /**********************
 	Различные экраны
 **********************/
 
 body.auth {
+
 	#controls-user,
 	.header .menu {
 		display: none;
@@ -729,5 +742,6 @@ body.main {
 		display: none;
 	}
 }
+
 @import "header";
 @import "content";

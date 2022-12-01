@@ -1,11 +1,10 @@
 # LauncherUI
-Исходные файлы интерфейса лаунчера [VimeWorld](http://vimeworld.com)
+Исходные файлы интерфейса лаунчера [VimeWorld](https://vimeworld.com)
 
-# Для разработчиков
-Проект готовый для открытия в редакторе [Atom](https://atom.io/).
-Для компиляции `.less` файлов используется пакет [less-compiler](https://atom.io/packages/less-compiler).
-Для форматирования кода используется пакет [atom-beautify](https://atom.io/packages/atom-beautify).
+# Разработка
+После запуска локального сервера `npm run dev` можно открыть в браузере `http://localhost:5174`, или с помощью невероятных читов напрямую из лаунчера.
 
 # Сборка
-Для сборки необходим Python 3 и Java 7. Скрипт `build/build.py` собирает готовый архив, который затем можно распаковать в 
-`%AppData%/.vimeworld/.data/html` и проверить изменения в деле.
+Для сборки необходимы Python 3 и Java 8.
+Команда `npm run build` компилирует `.less` файлы, а затем запускает скрипт `build/build.py`.
+После сборки можно распаковать архив `build/html.zip` в папку `%AppData%/.vimeworld/.data/html` и проверить изменения в деле.
