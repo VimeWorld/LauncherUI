@@ -5,9 +5,6 @@ $(document).ready(function (event) {
 	$('#s_fullscreen').change(function () {
 		_config.setFullscreen($(this).is(":checked"));
 	});
-	$('#s_useshaders').change(function () {
-		_config.setUseShaders($(this).is(":checked"));
-	});
 	$('#s_smoothscroll').change(function () {
 		_config.setSmoothScroll($(this).is(":checked"));
 	});
@@ -38,8 +35,6 @@ $(document).on('vimeworld:load', function (event) {
 		$('#s_savepass').attr('checked', '');
 	if (_config.isFullscreen())
 		$('#s_fullscreen').attr('checked', '');
-	if (_config.isUseShaders())
-		$('#s_useshaders').attr('checked', '');
 	if (_config.isSmoothScroll())
 		$('#s_smoothscroll').attr('checked', '');
 	$('#s_memory').val(_config.getMemory());
