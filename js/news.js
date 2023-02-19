@@ -100,6 +100,7 @@
 			label: '<img style="margin: 13px 0 0 4px" src="img/video_play_compact.png">'
 		});
 		twemoji.parse($post[0], {
+			base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@v12.1.4/assets/',
 			folder: 'svg',
 			ext: '.svg'
 		});
