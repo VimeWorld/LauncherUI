@@ -252,7 +252,9 @@
 		}
 
 		// Выбираем наименьшую подходящую фотку
-		candidates.sort((a, b) => a.width - b.width);
+		candidates.sort(function (a, b) {
+			return a.width - b.width;
+		});
 		var result = candidates[candidates.length - 1];
 		for (var i = 0; i < candidates.length; i++) {
 			if (candidates[i].width >= targetSize) {
