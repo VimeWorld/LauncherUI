@@ -170,18 +170,18 @@
 			post.attachments.forEach(function (attach) {
 				if (attach.type == 'photo') {
 					var photo = attach.photo;
-					var url = findPhotoUrl(photo.sizes, 807);
+					var url = findPhotoUrl(photo.sizes, 800).url;
 					post.text += '<p class="img"><img src="' + url + '"></p>';
 				} else if (attach.type == 'link' && attach.link.url.indexOf('vk.com/@') !== -1) {
 					var article = attach.link;
-					article.img = findPhotoUrl(article.photo.sizes, 807);
+					article.img = findPhotoUrl(article.photo.sizes, 800).url;
 					article.url = article.url.replace('m.vk.com', 'vk.com').replace('@-29034706', '@vimeworld');
 					post.text += tpl('tpl_news_post_article', article);
 				} else if (attach.type == 'doc' && attach.doc.ext == 'gif') {
 					var preview = attach.doc.preview;
-					var photo = findPhotoUrl(preview.photo.sizes, 807);
-					if (photo != null) {
-						if (preview.video != undefined && preview.video.src.indexOf('mp4=1') !== -1) {
+					var photo = findPhotoUrl(preview.photo.sizes, 800);
+					if (photo) {
+						if (preview.video && preview.video.src.indexOf('mp4=1') !== -1) {
 							post.text += '<p><img class="gifplayer" src="' + photo.src + '" data-mode="video" data-mp4="' + preview.video.src + '"></p>';
 						} else {
 							post.text += '<p><img class="gifplayer" src="' + photo.src + '" data-gif="' + attach.doc.url + '"></p>';
@@ -191,7 +191,7 @@
 					}
 				} else if (attach.type == 'video') {
 					var video = attach.video;
-					video.img = findPhotoUrl(video.image, 807);
+					video.img = findPhotoUrl(video.image, 800);
 					video.url = video.external_url || 'https://vk.com/wall' + group_id + '_' + post.id + '?z=video' + video.owner_id + '_' + video.id;
 					video.duration = video.duration > 0 ? formatTime(parseTime(video.duration)) : '';
 					post.text += tpl('tpl_news_post_video', video);
@@ -233,17 +233,34 @@
 	}
 
 	function findPhotoUrl(sizes, targetSize) {
-		var result = {
-			width: 0,
-			url: ""
-		};
+		// Ищем оригинальную пропорцию фотки
+		var maxWidth = 0;
+		var ratio = 0;
 		for (var i = 0; i < sizes.length; i++) {
-			if (sizes[i].width > targetSize)
-				break;
-			if (sizes[i].width > result.width)
-				result = sizes[i];
+			if (sizes[i].width > maxWidth) {
+				maxWidth = sizes[i].width;
+				ratio = sizes[i].width / sizes[i].height;
+			}
 		}
-		return result.url;
+
+		// Фильтруем все картинки, что сохранили пропорции
+		var candidates = [];
+		for (var i = 0; i < sizes.length; i++) {
+			var r = sizes[i].width / sizes[i].height;
+			if (Math.abs(ratio - r) < 0.02)
+				candidates.push(sizes[i]);
+		}
+
+		// Выбираем наименьшую подходящую фотку
+		candidates.sort((a, b) => a.width - b.width);
+		var result = candidates[candidates.length - 1];
+		for (var i = 0; i < candidates.length; i++) {
+			if (candidates[i].width >= targetSize) {
+				result = candidates[i];
+				break;
+			}
+		}
+		return result;
 	}
 
 	function parseTime(time) {
