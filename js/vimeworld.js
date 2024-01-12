@@ -115,6 +115,28 @@ var overlay = {
 //Вызывается после полной загрузки всех "мостов"
 $(document).on('vimeworld:load', function () {
 	_common.print("Init...");
+
+	if (!$('#overlay').hasClass('active')) {
+		var showPromo = false;
+		try {
+			var jsData = JSON.parse(_config.getJsData());
+			var time = new Date().getTime();
+			if (!jsData.lastPromo || time - jsData.lastPromo > 3 * 60 * 60 * 1000) {
+				showPromo = true;
+				jsData.lastPromo = time;
+				_config.setJsData(JSON.stringify(jsData));
+			}
+		} catch (e) {
+			_config.setJsData("{}");
+		}
+
+		if (showPromo) {
+			overlay.show(function () {
+				$('#launcher-v2').removeClass('active');
+			}, true);
+			$('#launcher-v2').addClass('active');
+		}
+	}
 });
 
 $(document).ready(function () {
